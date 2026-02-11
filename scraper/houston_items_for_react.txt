@@ -1,0 +1,184 @@
+
+📊 Found 12 unique items from 324 total entries
+
+Unique items:
+  - Crafts & Hobbies Sumi-e
+  - Ancel AD530 OBD2 Scanner Diagnostic Tool
+  - Crafts & Hobbies Kit - Mindfulness
+  - Tonie box Princesas de Disney
+  - Cookie Cutters - Dinosaurs
+  - Cookie Cutters - Hanukkah
+  - Musical Instrument: Kids Handbells
+  - Tonie box Canciones y Cuentos
+  - Bicycle repair kit
+  - Book Club Kit: Saints of the household
+  - Book Club Kit: The lion women of Tehran
+  - Tournament Chess Set - 4" King
+
+
+============================================================
+JAVASCRIPT CODE FOR mockData.js
+============================================================
+
+// Add these Houston Public Library items to mockData.js
+
+  {
+    id: '76',
+    name: 'Crafts & Hobbies Sumi-e',
+    category: 'Crafts & Hobbies',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000076?w=400&auto=format&fit=crop',
+    description: 'Japanese ink painting (Sumi-e) kit with brushes, ink stones, and rice paper. Learn traditional East Asian brush painting techniques with included instruction guide. Perfect for meditation and artistic expression.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["art", "painting", "Japanese", "calligraphy"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2305483/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2305483%7EILS%7E0&lm=LIBTHINGS'
+  },
+  {
+    id: '77',
+    name: 'Ancel AD530 OBD2 Scanner Diagnostic Tool',
+    category: 'Tools & Equipment',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000077?w=400&auto=format&fit=crop',
+    description: 'Professional-grade OBD2 diagnostic scanner for vehicle troubleshooting. Read and clear engine codes, monitor live data, view emissions readiness, and check O2 sensor tests. Color screen LCD display with multilingual support.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '7 days',
+    tags: ["automotive", "diagnostic", "scanner", "OBD2"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2331895/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2331895%7EILS%7E1&lm=LIBTHINGS'
+  },
+  {
+    id: '78',
+    name: 'Crafts & Hobbies Kit - Mindfulness',
+    category: 'Crafts & Hobbies',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000078?w=400&auto=format&fit=crop',
+    description: 'Mindfulness and meditation craft kit featuring adult coloring books, guided journals, aromatherapy tools, and relaxation exercises. Promote mental wellness and reduce stress through creative mindful activities.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["mindfulness", "wellness", "art therapy", "meditation"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2336991/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2336991%7EILS%7E2&lm=LIBTHINGS'
+  },
+  {
+    id: '79',
+    name: 'Tonie box Princesas de Disney',
+    category: 'Educational Kits',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000079?w=400&auto=format&fit=crop',
+    description: 'Toniebox audio player system with Disney Princess stories in Spanish. Screen-free, kid-friendly entertainment for ages 3+. Includes starter Tonie character figure. Durable, portable, and easy for little hands to use.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["kids", "audio", "bilingual", "screen-free"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2325648/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2325648%7EILS%7E3&lm=LIBTHINGS'
+  },
+  {
+    id: '80',
+    name: 'Cookie Cutters - Dinosaurs',
+    category: 'Crafts & Hobbies',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000080?w=400&auto=format&fit=crop',
+    description: 'Prehistoric-themed cookie cutter set with multiple dinosaur shapes including T-Rex, Triceratops, Stegosaurus, and more. Create fun treats for birthday parties, school events, or dinosaur enthusiasts of all ages.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["baking", "cookie cutters", "holidays", "kids"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2331893/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2331893%7EILS%7E4&lm=LIBTHINGS'
+  },
+  {
+    id: '81',
+    name: 'Cookie Cutters - Hanukkah',
+    category: 'Crafts & Hobbies',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000081?w=400&auto=format&fit=crop',
+    description: 'Hanukkah celebration cookie cutter set featuring traditional symbols: dreidels, menorahs, Stars of David, and gelt coins. Perfect for holiday baking and celebrating the Festival of Lights with family.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["baking", "cookie cutters", "holidays", "kids"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2331894/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2331894%7EILS%7E5&lm=LIBTHINGS'
+  },
+  {
+    id: '82',
+    name: 'Musical Instrument: Kids Handbells',
+    category: 'Musical Instruments',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000082?w=400&auto=format&fit=crop',
+    description: '8-piece colorful handbell set by Rhythm Band Instruments. Each bell produces a different musical note in the diatonic scale. Excellent for music education, group activities, and introducing children to melody and rhythm.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["music", "handbells", "kids", "education"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2324001/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2324001%7EILS%7E6&lm=LIBTHINGS'
+  },
+  {
+    id: '83',
+    name: 'Tonie box Canciones y Cuentos',
+    category: 'Educational Kits',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000083?w=400&auto=format&fit=crop',
+    description: 'Toniebox with Spanish songs and stories collection. Screen-free bilingual audio entertainment for kids ages 3 and up. Educational content promoting Spanish language learning through music and storytelling.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["kids", "audio", "bilingual", "screen-free"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2324684/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2324684%7EILS%7E7&lm=LIBTHINGS'
+  },
+  {
+    id: '84',
+    name: 'Bicycle repair kit',
+    category: 'Tools & Equipment',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000084?w=400&auto=format&fit=crop',
+    description: 'Comprehensive Park Tool bicycle maintenance kit with essential tools for home bike repair. Includes tire levers, patch kit, multi-tool with hex keys, chain breaker, and spoke wrench. Keep your ride running smoothly.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '7 days',
+    tags: ["bicycle", "repair", "tools", "maintenance"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2333868/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2333868%7EILS%7E8&lm=LIBTHINGS'
+  },
+  {
+    id: '85',
+    name: 'Book Club Kit: Saints of the household',
+    category: 'Educational Kits',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000085?w=400&auto=format&fit=crop',
+    description: 'Teen book club discussion kit with 10 copies of 'Saints of the Household' by Ari Tison. Coming-of-age story about two Mexican-American brothers. Includes discussion guide, author bio, and reading group questions.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '30 days',
+    tags: ["books", "book club", "reading", "discussion"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2336657/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2336657%7EILS%7E9&lm=LIBTHINGS'
+  },
+  {
+    id: '86',
+    name: 'Book Club Kit: The lion women of Tehran',
+    category: 'Educational Kits',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000086?w=400&auto=format&fit=crop',
+    description: 'Adult book club kit with 10 copies of 'The Lion Women of Tehran' by Marjan Kamali. Historical fiction set in 1950s Iran following two best friends navigating love, loss, and revolution. Includes discussion guide.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '30 days',
+    tags: ["books", "book club", "reading", "discussion"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2336351/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2336351%7EILS%7E10&lm=LIBTHINGS'
+  },
+  {
+    id: '87',
+    name: 'Tournament Chess Set - 4" King',
+    category: 'Games & Puzzles',
+    library: libraries[1], // Houston Public Library
+    image: 'https://images.unsplash.com/photo-1500000087?w=400&auto=format&fit=crop',
+    description: 'Professional tournament-regulation chess set with weighted Staunton-style pieces and 4-inch king height. Includes roll-up vinyl board (20"x20"), algebraic notation, and storage tube. Perfect for serious players and club games.',
+    condition: 'Excellent',
+    availability: true,
+    loanPeriod: '14 days',
+    tags: ["games", "chess", "strategy", "tournament"],
+    reserveUrl: 'https://halan.sdp.sirsi.net/client/en_US/hou/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:2333369/ada?d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A2333369%7EILS%7E11&lm=LIBTHINGS'
+  },
+
+============================================================
+✅ Generated 12 unique Houston library items
+============================================================

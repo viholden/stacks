@@ -1,0 +1,71 @@
+.libraries-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 2rem;
+}
+
+.libraries-page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.libraries-page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--charcoal);
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.libraries-map-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.libraries-map-section h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--charcoal);
+  margin-bottom: var(--spacing-sm);
+}
+
+.map-description {
+  color: var(--slate);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+}
+
+.libraries-list-section h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--charcoal);
+  margin-bottom: var(--spacing-lg);
+}
+
+.libraries-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .libraries-page {
+    padding: var(--spacing-lg) 1rem;
+  }
+  
+  .libraries-page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .libraries-list-grid {
+    grid-template-columns: 1fr;
+  }
+}

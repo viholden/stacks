@@ -1,0 +1,122 @@
+.library-card {
+  background-color: var(--warm-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  border: 2px solid transparent;
+}
+
+.library-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--sage);
+}
+
+.library-card-header {
+  border-bottom: 2px solid var(--soft-beige);
+  padding-bottom: var(--spacing-sm);
+}
+
+.library-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--charcoal);
+  margin-bottom: var(--spacing-xs);
+}
+
+.library-card-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.stat {
+  background-color: var(--soft-beige);
+  color: var(--charcoal);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stat.available {
+  background-color: rgba(168, 181, 160, 0.2);
+  color: var(--forest);
+}
+
+.library-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.library-address {
+  color: var(--slate);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.library-phone {
+  color: var(--slate);
+  font-weight: 500;
+  margin: 0;
+}
+
+.library-card-hours {
+  background-color: var(--cream);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.library-card-hours p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.library-card-hours strong {
+  color: var(--charcoal);
+}
+
+.hours-detail {
+  margin-left: var(--spacing-sm);
+}
+
+.library-card-actions {
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--soft-beige);
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--forest);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.map-link:hover {
+  color: var(--sage);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .library-card {
+    padding: var(--spacing-md);
+  }
+  
+  .library-card-name {
+    font-size: 1.25rem;
+  }
+}

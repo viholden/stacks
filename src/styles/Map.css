@@ -1,0 +1,70 @@
+.map-container {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.map-popup {
+  min-width: 200px;
+}
+
+.map-popup h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  margin: 0 0 0.5rem 0;
+}
+
+.popup-address {
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.popup-phone {
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin: 0.25rem 0;
+}
+
+.popup-actions {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--soft-beige);
+}
+
+.popup-link {
+  display: inline-block;
+  color: var(--forest);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.popup-link:hover {
+  color: var(--sage);
+  text-decoration: underline;
+}
+
+/* Leaflet overrides for better styling */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md);
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 1rem;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--slate);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: var(--charcoal);
+}
