@@ -1,0 +1,64 @@
+
+Documentation Feedback ~ Deliverable #2
+Software Requirements Specification
+Initial Development Schedule
+CMSI 4072 Spring 2026
+=======================================
+
+COMPONENT BREAKDOWN:
+   Strengths
+      Components clearly separated by responsibility.
+      High-level diagram clarifies interactions.
+   Suggestions
+      Components could be decomposed further into submodules (CSUs).
+      A rationale for each component boundary would improve completeness.
+
+FUNCTIONAL REQUIREMENTS:
+   Strengths
+      Broad coverage of major user‑facing behaviors.
+      Requirements are consistently structured and externally testable.
+   Suggestions
+      Some functions could benefit from quantification (e.g., limits on
+         saved items, max Stacks per user).
+      Missing edge-case behaviors (e.g., how missing data, broken catalog
+         links, or empty search results are handled).
+      Could add admin or maintenance requirements if relevant.
+
+PERFORMANCE REQUIREMENTS:
+   Strengths
+      Requirements are measurable and observable.
+      Cover both speed and concurrency.
+   Suggestions
+      Could define quantitative limits on concurrency (e.g., expected max
+         number of simultaneous users).
+      Could define availability, uptime, or scalability expectations.
+
+ENVIRONMENT REQUIREMENTS:
+   Strengths
+      Clearly states hardware/software assumptions.
+      Realistic for a web application.
+   Suggestions
+      Could describe backend hosting environment (cloud provider, OS,
+         database engine).
+      Could specify required API endpoints and external dependency behavior.
+
+OVERALL ASSESSMENT:
+   Category                          Points
+   Component Breakdown               1.0/1
+   Functional Requirements           3.6/4
+   Performance Requirements          2.0/2
+   Environment Requirements          1.0/1
+                                     =====
+   Subtotal                          7.6/8
+   Preliminary Schedule              2.0/2
+   ------------------------------------------------------
+   Total Percentage:   9.6/10 = 96% which is an A
+
+You've met most of the desired measurements for this deliverable.  Your SRS
+is very well done but could benefit from at least incorporating a few of
+the suggestions to make it even more complete, such as some of the suggested
+items in the Functional and Performance sections.
+
+Nice work on this deliverable ~ keep up the good work!
+
+
