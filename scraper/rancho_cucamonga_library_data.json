@@ -1,0 +1,101 @@
+{
+  "library_name": "Rancho Cucamonga Public Library",
+  "scrape_date": "2026-02-11T19:19:54.389936",
+  "total_items": 12,
+  "categories": {
+    "Other": [
+      {
+        "name": "Busy boardBusy boardbydeMoca.Format:3-D ObjectCall NumberLOT TOYImageAvailable:0",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Other"
+      },
+      {
+        "name": "LEGO classic large brick boxLEGO classic large brick boxbyLEGO toys. https://lccn.loc.gov/sh86008105Format:3-D ObjectCall NumberLOT TOYPublication2015ImageAvailable:1",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Other"
+      }
+    ],
+    "Tools & Equipment": [
+      {
+        "name": "Bungee cord setBungee cord setbyWellmax.Format:3-D ObjectCall NumberLOT TOOLImageAvailable:3",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Tools & Equipment"
+      },
+      {
+        "name": "Metal detector.Metal detector.byBounty Hunter.Click here for user guideFormat:3-D ObjectCall NumberLOT TOOLImageAvailable:0",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Tools & Equipment"
+      }
+    ],
+    "Sports & Outdoors": [
+      {
+        "name": "Hand grip strengthener balls.Hand grip strengthener balls.byMind Reader.Format:3-D ObjectCall NumberLOT WELLNESSImageAvailable:0",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Sports & Outdoors"
+      },
+      {
+        "name": "Sensory balls.Sensory balls.byEdushape.Format:3-D ObjectCall NumberLOT WELLNESSImageAvailable:2",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Sports & Outdoors"
+      },
+      {
+        "name": "Writable weighted lap padWritable weighted lap padbyLakiKid.Click here for user guideFormat:3-D ObjectCall NumberLOT WELLNESSPublication2019ImageAvailable:1",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Sports & Outdoors"
+      }
+    ],
+    "Games & Recreation": [
+      {
+        "name": "Really loud librariansbyExploding Kittens.Format:3-D ObjectCall NumberLOT GAMEPublication2023ImageAvailable:2",
+        "description": "",
+        "image_url": "https://secure.syndetics.com/index.aspx?type=xw12&client=rancp&upc=810083043265&oclc=&isbn=&issn=/MC.GIF",
+        "detail_url": "",
+        "category": "Games & Recreation"
+      },
+      {
+        "name": "Trekking the National Parks : the board game.byExploding Kittens.Format:3-D ObjectCall NumberLOT GAMEEditionSecond edition.Publication2022ImageAvailable:1",
+        "description": "",
+        "image_url": "https://secure.syndetics.com/index.aspx?type=xw12&client=rancp&upc=869418000022&oclc=&isbn=&issn=/MC.GIF",
+        "detail_url": "",
+        "category": "Games & Recreation"
+      },
+      {
+        "name": "Keystone: North AmericaKeystone: North AmericabyJoyce, Jeffrey designer.Format:3-D ObjectCall NumberLOT GAMEPublication2022ImageAvailable:2",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Games & Recreation"
+      },
+      {
+        "name": "TwisterbyHasbro, Inc.Format:3-D ObjectCall NumberLOT GAMEImageAvailable:1",
+        "description": "",
+        "image_url": "https://secure.syndetics.com/index.aspx?type=xw12&client=rancp&upc=653569732259&oclc=&isbn=&issn=/MC.GIF",
+        "detail_url": "",
+        "category": "Games & Recreation"
+      }
+    ],
+    "Arts & Crafts": [
+      {
+        "name": "Motion sickness braceletMotion sickness braceletbyEmeTerm.Click here for quick start guide:Click here for user guide:Format:3-D ObjectCall NumberLOT WELLNESSImageAvailable:1",
+        "description": "",
+        "image_url": "https://rcuca.ent.sirsi.net/client/assets/5.1326/ctx//client/images/no_image.png",
+        "detail_url": "",
+        "category": "Arts & Crafts"
+      }
+    ]
+  }
+}
