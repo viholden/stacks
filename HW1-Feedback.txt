@@ -1,0 +1,61 @@
+
+
+HW 1 - Stephens Book Chapters 1, 2, 4, and 5
+CMSI 4072 Spring 2026
+
+Category        Weight     Earned
+===========    ========    ======
+Problem 1.1    [8 pts.]       7.0
+Problem 1.2    [8 pts.]       8.0
+Problem 2.4    [1 pts.]       1.0
+Problem 2.5    [1 pts.]       1.0
+Problem 4.2    [5 pts.]       4.0
+Problem 4.4    [5 pts.]       3.0
+Problem 4.6    [1 pts.]       1.0
+Problem 4.8    [2 pts.]       1.0
+Problem 5.1    [1 pts.]       1.0
+Problem 5.3    [5 pts.]       4.0
+Problem 5.9    [3 pts.]       3.0
+
+      Subtotal [50 max]      40.0
+             Your Total      34.0
+
+         Letter grade   B
+
+=================
+SPECIFIC COMMENTS:
+
+Problem 1.1 ~ This covers much of the lifecycle but omits deployment and
+   wrap-up/retrospective, and doesn’t distinguish high- vs. low-level design.
+   Good start but not fully complete.
+
+Problem 1.2 ~ since deployment and wrap-up weren’t included in 1.1, they’re
+   also not addressed here, leaving the description set incomplete
+
+Problem 2.4 ~ correct
+
+Problem 2.5 ~ correct
+
+Problem 4.2 ~ critical path should be either H, I, D, E, M, Q or G, D, E, M, Q
+   for a total of 32 days.
+
+Problem 4.4 ~ table is provided for the stated critical path, but it doesn’t
+   demonstrate weekend/holiday skips and the date ranges appear to include
+   weekends.  Also, not a Gantt chart.
+
+Problem 4.6 ~ correct
+
+Problem 4.8 ~ The textbook’s two biggest mistakes are typically (1) adding
+   people to a late task (Brooks’s Law) and (2) ignoring lost time assuming
+   you can make it up later; these aren’t captured here.
+
+Problem 5.1 ~ correct
+
+Problem 5.3 ~ The submission splits into User vs. System only, which doesn’t
+   map cleanly to the requested taxonomy and leads to several
+   misclassifications.
+
+Problem 5.9 ~ correct
+
+
+nice work!
