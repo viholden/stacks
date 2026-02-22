@@ -1,0 +1,1983 @@
+{
+  "library": "Beverly Public Library",
+  "scraped_at": "2026-02-11T17:34:50.957961",
+  "total_items": 219,
+  "items": [
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "Collections",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ebooks&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook Open Access CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e001mww",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE PremierLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=f5h&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE Reference eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDriveLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/content",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/kids",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for TeensLibrary Card Required",
+      "category": "Other",
+      "original_category": "eBooks & Audiobooks",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/teens",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "Access America's NewsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=easy-search%3Fp%3DNewsBank",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Citizen/Herald CitizenLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AHCDD%2521Herald%252520Citizen%252520%252528Danvers%25252C%252520Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Historic Newspapers",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://beverly.historyarchives.online/home",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston Globe",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.proquest.com/bostonglobe?accountid=47947",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston HeraldLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ABHBLBNHB%2521Boston%252520Herald%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Consumer ReportsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=crcro&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "hoopla MagazinesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://www.hoopladigital.com/title/14738021",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "New York TimesBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://nytimes.com/subscription/redeem/all-access?campaignId=8L8UF&gift_code=1a448ca56e7d14f1",
+      "total_copies": 1
+    },
+    {
+      "name": "New York Times Article Archive",
+      "category": "Arts & Crafts",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=SP24&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "News: Gale OneFile",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=STND&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Newspaper SourceLibrary Card Required",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=nfh",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive MagazinesLibrary Card Required",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/magazines",
+      "total_copies": 1
+    },
+    {
+      "name": "Salem NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ASNBBB%2521Salem%252520News%25252C%252520The%252520%252528Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "USA TodayLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AUSTBUSAT%2521USA%252520TODAY%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Wall Street JournalLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Newspapers & Magazines",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://partner.wsj.com/p/1148200010/enter-redemption-code/PL95USAXGX1O",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "Library of Things",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/uploads/2022/05/BPL-logo@2x.png",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "Access America's NewsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=easy-search%3Fp%3DNewsBank",
+      "total_copies": 1
+    },
+    {
+      "name": "American AncestorsIn-Library Use Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-building_a2ef1259.svg",
+      "detail_url": "http://www.americanancestors.org/",
+      "total_copies": 1
+    },
+    {
+      "name": "Ancestry Library EditionIn-Library Use Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-building_a2ef1259.svg",
+      "detail_url": "https://proxy17.noblenet.org/login?url=https://ancestrylibrary.proquest.com",
+      "total_copies": 1
+    },
+    {
+      "name": "AtoZdatabasesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.atozdatabases.com/search",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverlega (Yearbooks)",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://omeka-s.noblenet.org/s/beverly/item/2553",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Citizen/Herald CitizenLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AHCDD%2521Herald%252520Citizen%252520%252528Danvers%25252C%252520Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly City Meeting Minutes",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "http://lfserver.beverlyma.gov/WebLink/Browse.aspx?id=9095&dbid=0&repo=BPL",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Digital Heritage",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://digitalheritage.noblenet.org/s/beverly/page/welcome",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Historic Newspapers",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://beverly.historyarchives.online/home",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston Globe",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.proquest.com/bostonglobe?accountid=47947",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston HeraldLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ABHBLBNHB%2521Boston%252520Herald%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Escolar",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=eb_escolar&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Fundamentals!",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?loc=mlin_n_bevpubl&db=EB_LEARNINGZONE",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Library",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://library.eb.com/levels",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica School",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=eb_school&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Business Source PremiereLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=bsi&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Business: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=ITBC&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Consumer ReportsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=crcro&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ebooks&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook Open Access CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e001mww",
+      "total_copies": 1
+    },
+    {
+      "name": "Economics and Theory: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPBE&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Educational Resource Information Center (ERIC)Library Card Required",
+      "category": "Educational Kits",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=eric",
+      "total_copies": 1
+    },
+    {
+      "name": "Entrepreneurship: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPSB&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Environmental Notification Form for The Commons at Trask Lane",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://eeaonline.eea.state.ma.us/EEA/MEPA-eMonitor/submittal/459bf6d3-e899-4c3a-bd4d-471b23f96f4c",
+      "total_copies": 1
+    },
+    {
+      "name": "European Views of the Americas: 1493-1750Library Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hev",
+      "total_copies": 1
+    },
+    {
+      "name": "Excel Adult High School",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.excelhighschool.org/library/bpl&sid=galepages",
+      "total_copies": 1
+    },
+    {
+      "name": "ExploraLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=explora&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Explora for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=explora-ps&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Explora for Secondary SchoolsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=src_ic&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Fold3 Library EditionLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://fold3library.proquest.com/barcode?accountid=47947",
+      "total_copies": 1
+    },
+    {
+      "name": "Funk & Wagnalls New World EncyclopediaLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "A K-8 encyclopedia resource that is made available through EBSCO's Primary Search database. EBSCO's Primary Search database provides access to full-text children's magazines.",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=funk",
+      "total_copies": 1
+    },
+    {
+      "name": "Health and Medicine: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=HRCA&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Consumer EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hxh",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Nursing/Academic EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hch",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "hoopla MagazinesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/title/14738021",
+      "total_copies": 1
+    },
+    {
+      "name": "Insurance and Liability: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPIL&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "KanopyLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://beverlylibraryma.kanopy.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "Leadership and Management: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPRF&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "Massachusetts Law Guides",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.mass.gov/massachusetts-law-about",
+      "total_copies": 1
+    },
+    {
+      "name": "MassHire Career Services and Planning",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.mass.gov/topics/masshire",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE PremierLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=f5h&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE Reference eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "MEDLINELibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=cmedm",
+      "total_copies": 1
+    },
+    {
+      "name": "Morningstar Investing CenterLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "http://proxy17.noblenet.org/login?url=https://research.morningstar.com/ic/ip-sign-in",
+      "total_copies": 1
+    },
+    {
+      "name": "MyHeritageLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=mhlibed&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "New York TimesBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/author_a2ef1259.svg",
+      "detail_url": "https://nytimes.com/subscription/redeem/all-access?campaignId=8L8UF&gift_code=1a448ca56e7d14f1",
+      "total_copies": 1
+    },
+    {
+      "name": "New York Times Article Archive",
+      "category": "Arts & Crafts",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=SP24&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "News: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=STND&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Newspaper SourceLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=nfh",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList K-8 PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novpk8&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novplus&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Nursing and Allied Health: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://libraries.state.ma.us/login?db=PPNU&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Opposing Viewpoints: Gale In Context",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=OVIC&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDriveLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/content",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/kids",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for TeensLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/teens",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive MagazinesLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/magazines",
+      "total_copies": 1
+    },
+    {
+      "name": "PebbleGo",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=pebblego&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Professional Development Collection for EducatorsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=tfh",
+      "total_copies": 1
+    },
+    {
+      "name": "Regional Business NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=bwh",
+      "total_copies": 1
+    },
+    {
+      "name": "Salem NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ASNBBB%2521Salem%252520News%25252C%252520The%252520%252528Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Teacher Reference CenterLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=trh",
+      "total_copies": 1
+    },
+    {
+      "name": "USA TodayLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AUSTBUSAT%2521USA%252520TODAY%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Value Line EliteLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://proxy17.noblenet.org/login?url=https://research.valueline.com/secure/dashboard",
+      "total_copies": 1
+    },
+    {
+      "name": "Vocations and Careers: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPVC&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Wall Street JournalLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://partner.wsj.com/p/1148200010/enter-redemption-code/PL95USAXGX1O",
+      "total_copies": 1
+    },
+    {
+      "name": "AtoZdatabasesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.atozdatabases.com/search",
+      "total_copies": 1
+    },
+    {
+      "name": "Business Source PremiereLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=bsi&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Business: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=ITBC&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Economics and Theory: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPBE&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Entrepreneurship: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPSB&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Insurance and Liability: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=PPIL&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Leadership and Management: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPRF&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Morningstar Investing CenterLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "http://proxy17.noblenet.org/login?url=https://research.morningstar.com/ic/ip-sign-in",
+      "total_copies": 1
+    },
+    {
+      "name": "New York TimesBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/author_a2ef1259.svg",
+      "detail_url": "https://nytimes.com/subscription/redeem/all-access?campaignId=8L8UF&gift_code=1a448ca56e7d14f1",
+      "total_copies": 1
+    },
+    {
+      "name": "Regional Business NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=bwh",
+      "total_copies": 1
+    },
+    {
+      "name": "Value Line EliteLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://proxy17.noblenet.org/login?url=https://research.valueline.com/secure/dashboard",
+      "total_copies": 1
+    },
+    {
+      "name": "Vocations and Careers: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPVC&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Wall Street JournalLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://partner.wsj.com/p/1148200010/enter-redemption-code/PL95USAXGX1O",
+      "total_copies": 1
+    },
+    {
+      "name": "AtoZdatabasesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.atozdatabases.com/search",
+      "total_copies": 1
+    },
+    {
+      "name": "Educational Resource Information Center (ERIC)Library Card Required",
+      "category": "Educational Kits",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=eric",
+      "total_copies": 1
+    },
+    {
+      "name": "Excel Adult High School",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.excelhighschool.org/library/bpl&sid=galepages",
+      "total_copies": 1
+    },
+    {
+      "name": "Health and Medicine: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=HRCA&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Nursing/Academic EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hch",
+      "total_copies": 1
+    },
+    {
+      "name": "Leadership and Management: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPRF&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "MassHire Career Services and Planning",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.mass.gov/topics/masshire",
+      "total_copies": 1
+    },
+    {
+      "name": "Nursing and Allied Health: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://libraries.state.ma.us/login?db=PPNU&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Professional Development Collection for EducatorsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=tfh",
+      "total_copies": 1
+    },
+    {
+      "name": "Teacher Reference CenterLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=trh",
+      "total_copies": 1
+    },
+    {
+      "name": "Vocations and Careers: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=PPVC&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ebooks&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "EBSCO eBook Open Access CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e001mww",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE PremierLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=f5h&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE Reference eBook CollectionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDriveLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/content",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/kids",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for TeensLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/teens",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "hoopla MagazinesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/title/14738021",
+      "total_copies": 1
+    },
+    {
+      "name": "KanopyLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://beverlylibraryma.kanopy.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList K-8 PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novpk8&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novplus&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDriveLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/content",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/kids",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for TeensLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/teens",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive MagazinesLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/magazines",
+      "total_copies": 1
+    },
+    {
+      "name": "American AncestorsIn-Library Use Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-building_a2ef1259.svg",
+      "detail_url": "http://www.americanancestors.org/",
+      "total_copies": 1
+    },
+    {
+      "name": "Ancestry Library EditionIn-Library Use Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-building_a2ef1259.svg",
+      "detail_url": "https://proxy17.noblenet.org/login?url=https://ancestrylibrary.proquest.com",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverlega (Yearbooks)",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://omeka-s.noblenet.org/s/beverly/item/2553",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Citizen/Herald CitizenLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AHCDD%2521Herald%252520Citizen%252520%252528Danvers%25252C%252520Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly City Meeting Minutes",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "http://lfserver.beverlyma.gov/WebLink/Browse.aspx?id=9095&dbid=0&repo=BPL",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Digital Heritage",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://digitalheritage.noblenet.org/s/beverly/page/welcome",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Historic Newspapers",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://beverly.historyarchives.online/home",
+      "total_copies": 1
+    },
+    {
+      "name": "Fold3 Library EditionLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://fold3library.proquest.com/barcode?accountid=47947",
+      "total_copies": 1
+    },
+    {
+      "name": "MyHeritageLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=mhlibed&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "Salem NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ASNBBB%2521Salem%252520News%25252C%252520The%252520%252528Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Consumer ReportsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=crcro&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "Health and Medicine: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=HRCA&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Consumer EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hxh",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Nursing/Academic EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hch",
+      "total_copies": 1
+    },
+    {
+      "name": "MEDLINELibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=cmedm",
+      "total_copies": 1
+    },
+    {
+      "name": "Nursing and Allied Health: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://libraries.state.ma.us/login?db=PPNU&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Escolar",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=eb_escolar&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Fundamentals!",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?loc=mlin_n_bevpubl&db=EB_LEARNINGZONE",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica School",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=eb_school&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Explora for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=explora-ps&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Funk & Wagnalls New World EncyclopediaLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "A K-8 encyclopedia resource that is made available through EBSCO's Primary Search database. EBSCO's Primary Search database provides access to full-text children's magazines.",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=funk",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "KanopyLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://beverlylibraryma.kanopy.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList K-8 PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novpk8&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for KidsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/kids",
+      "total_copies": 1
+    },
+    {
+      "name": "PebbleGo",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=pebblego&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Consumer ReportsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=crcro&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "Excel Adult High School",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.excelhighschool.org/library/bpl&sid=galepages",
+      "total_copies": 1
+    },
+    {
+      "name": "ExploraLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=explora&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Consumer EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hxh",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE PremierLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=f5h&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "Opposing Viewpoints: Gale In Context",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=OVIC&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Access America’s NewsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=easy-search%3Fp%3DNewsBank",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Citizen/Herald CitizenLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AHCDD%2521Herald%252520Citizen%252520%252528Danvers%25252C%252520Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Beverly Historic Newspapers",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://beverly.historyarchives.online/home",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston Globe",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.proquest.com/bostonglobe?accountid=47947",
+      "total_copies": 1
+    },
+    {
+      "name": "Boston HeraldLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ABHBLBNHB%2521Boston%252520Herald%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Consumer ReportsLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=bev&groupid=main&site=crcro&return=y",
+      "total_copies": 1
+    },
+    {
+      "name": "hoopla MagazinesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/title/14738021",
+      "total_copies": 1
+    },
+    {
+      "name": "LibbyLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.overdrive.com/apps/libby/",
+      "total_copies": 1
+    },
+    {
+      "name": "New York TimesBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/author_a2ef1259.svg",
+      "detail_url": "https://nytimes.com/subscription/redeem/all-access?campaignId=8L8UF&gift_code=1a448ca56e7d14f1",
+      "total_copies": 1
+    },
+    {
+      "name": "New York Times Article Archive",
+      "category": "Arts & Crafts",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=SP24&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "News: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=STND&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Newspaper SourceLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=nfh",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive MagazinesLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/magazines",
+      "total_copies": 1
+    },
+    {
+      "name": "Salem NewsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253ASNBBB%2521Salem%252520News%25252C%252520The%252520%252528Beverly%25252C%252520MA%252529%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "USA TodayLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://infoweb.newsbank.com/apps/news/user/librarycard/BeverlyPublicLibrary?destination=browse-multi%3Fp%3DNewsBank%26t%3Dfavorite%253AUSTBUSAT%2521USA%252520TODAY%252520Collection%26action%3Dbrowse",
+      "total_copies": 1
+    },
+    {
+      "name": "Wall Street JournalLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://partner.wsj.com/p/1148200010/enter-redemption-code/PL95USAXGX1O",
+      "total_copies": 1
+    },
+    {
+      "name": "AtoZdatabasesLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.atozdatabases.com/search",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Library",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://library.eb.com/levels",
+      "total_copies": 1
+    },
+    {
+      "name": "Educational Resource Information Center (ERIC)Library Card Required",
+      "category": "Educational Kits",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=eric",
+      "total_copies": 1
+    },
+    {
+      "name": "Environmental Notification Form for The Commons at Trask Lane",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://eeaonline.eea.state.ma.us/EEA/MEPA-eMonitor/submittal/459bf6d3-e899-4c3a-bd4d-471b23f96f4c",
+      "total_copies": 1
+    },
+    {
+      "name": "European Views of the Americas: 1493-1750Library Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hev",
+      "total_copies": 1
+    },
+    {
+      "name": "ExploraLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=explora&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Funk & Wagnalls New World EncyclopediaLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "A K-8 encyclopedia resource that is made available through EBSCO's Primary Search database. EBSCO's Primary Search database provides access to full-text children's magazines.",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=funk",
+      "total_copies": 1
+    },
+    {
+      "name": "Health and Medicine: Gale OneFile",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=HRCA&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Consumer EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hxh",
+      "total_copies": 1
+    },
+    {
+      "name": "Health Source: Nursing/Academic EditionLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=hch",
+      "total_copies": 1
+    },
+    {
+      "name": "Massachusetts Law Guides",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://www.mass.gov/massachusetts-law-about",
+      "total_copies": 1
+    },
+    {
+      "name": "MasterFILE PremierLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=f5h&defaultdb=e864sww",
+      "total_copies": 1
+    },
+    {
+      "name": "MEDLINELibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=cmedm",
+      "total_copies": 1
+    },
+    {
+      "name": "New York TimesBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/author_a2ef1259.svg",
+      "detail_url": "https://nytimes.com/subscription/redeem/all-access?campaignId=8L8UF&gift_code=1a448ca56e7d14f1",
+      "total_copies": 1
+    },
+    {
+      "name": "Opposing Viewpoints: Gale In Context",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=OVIC&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "Professional Development Collection for EducatorsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=tfh",
+      "total_copies": 1
+    },
+    {
+      "name": "Teacher Reference CenterLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=trh",
+      "total_copies": 1
+    },
+    {
+      "name": "Wall Street JournalLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://partner.wsj.com/p/1148200010/enter-redemption-code/PL95USAXGX1O",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Escolar",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://galesupport.com/geo/ma/?db=eb_escolar&locid=mlin_n_bevpubl",
+      "total_copies": 1
+    },
+    {
+      "name": "Britannica Library",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://library.eb.com/levels",
+      "total_copies": 1
+    },
+    {
+      "name": "Explora for Secondary SchoolsLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=src_ic&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Funk & Wagnalls New World EncyclopediaLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "A K-8 encyclopedia resource that is made available through EBSCO's Primary Search database. EBSCO's Primary Search database provides access to full-text children's magazines.",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=ehost&custid=bev&authtype=cookie,ip,cpid&defaultdb=funk",
+      "total_copies": 1
+    },
+    {
+      "name": "hooplaLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://www.hoopladigital.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "KanopyLibrary Card RequiredBeverly Resident Only",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://beverlylibraryma.kanopy.com/",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList K-8 PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novpk8&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "NoveList PlusLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://search.ebscohost.com/login.aspx?profile=novplus&custid=bev&authtype=cookie,ip,cpid",
+      "total_copies": 1
+    },
+    {
+      "name": "Opposing Viewpoints: Gale In Context",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "",
+      "detail_url": "https://go.gale.com/ps/start.do?p=OVIC&u=mlin_n_bevpubl&sid=geolinks",
+      "total_copies": 1
+    },
+    {
+      "name": "OverDrive for TeensLibrary Card Required",
+      "category": "Other",
+      "original_category": "Digital Resources",
+      "description": "",
+      "image_url": "https://beverlypubliclibrary.org/wp-content/themes/beverly-public-library/dist/images/icons/library-card_a2ef1259.svg",
+      "detail_url": "https://noble.overdrive.com/noble-beverly/teens",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "Local History & Genealogy",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    },
+    {
+      "name": "All Hours & Branches",
+      "category": "Other",
+      "original_category": "in-library",
+      "description": "",
+      "image_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+      "detail_url": "https://beverlypubliclibrary.org/?page_id=176",
+      "total_copies": 1
+    }
+  ],
+  "categories": {
+    "Other": 213,
+    "Arts & Crafts": 3,
+    "Educational Kits": 3
+  }
+}
