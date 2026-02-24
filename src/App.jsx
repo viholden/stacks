@@ -8,6 +8,7 @@ import Library from './pages/Library'
 import Libraries from './pages/Libraries'
 import CategoryItems from './pages/CategoryItems'
 import Profile from './pages/Profile'
+import Discover from './pages/Discover'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/discover" element={<Discover />} />
             <Route path="/results" element={<Results />} />
             <Route path="/item/:id" element={<Item />} />
             <Route path="/library/:id/category/:category" element={<CategoryItems />} />

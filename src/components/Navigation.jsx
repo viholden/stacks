@@ -20,6 +20,9 @@ function Navigation() {
           <Link to="/" className={`nav-link ${isActive('/')}`}>
             Home
           </Link>
+          <Link to="/discover" className={`nav-link ${isActive('/discover')}`}>
+            Discover
+          </Link>
           <Link to="/results" className={`nav-link ${isActive('/results')}`}>
             Browse
           </Link>
