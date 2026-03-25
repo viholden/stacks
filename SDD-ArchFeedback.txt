@@ -1,0 +1,108 @@
+
+Documentation Feedback ~ Deliverable #3
+Software Design Document ~ Architecture
+CMSI 4072 Spring 2026 ~
+=======================================
+
+6.1 INTRODUCTION SECTION:
+   System objectives section
+      Strengths:
+         Objectives are concrete and user‑focused (discovery, location 
+            search, browsing, intuitive navigation, profiles, responsive UX).
+      Suggestions:
+         Objectives are concrete and user‑focused (discovery, location 
+            search, browsing, intuitive navigation, profiles, responsive UX).
+
+   Hardware, software, and human interfaces section
+      Strengths:
+         Lists supported browsers and required Web APIs (Geolocation, Fetch, 
+            Local Storage) with minimum display sizes.
+         Enumerates major software interfaces and libraries (React, Router, 
+            Vite, Open Library, Nominatim).
+         Describes core UI elements and visual design tokens at a high level.
+      Suggestions:
+         Add accessibility standards (e.g., WCAG level, keyboard navigation,
+            color contrast, screen‑reader expectations).
+         Specify device/network assumptions (mobile data vs Wi‑Fi, GPS  
+            accuracy ranges, behavior when geolocation permission is denied).
+         Document privacy and consent for location usage and any local  
+            storage of user preferences or favorites.
+         Provide a concise summary table that separates hardware, software, 
+             and human interfaces for quick reference.
+
+
+6.2 ARCHITECTURAL DESIGN SECTION:
+   Major softwre components section
+      Strengths:
+         Component inventory is clear (routing, pages, shared UI, data  
+            adapters, registry, scraper), with purposes and key modules.
+         Identifies adapters for Open Library and geocoding, and the  
+            static registry for libraries.
+      Suggestions:
+         Add explicit interfaces (inputs, outputs, data contracts, error  
+            codes) for each CSC/CSU to reduce ambiguity.
+         Clarify dependencies among components (e.g., which pages call  
+            which adapters, how localStorage wraps favorites).
+         Describe failure modes and fallbacks (e.g., API outage, geocoding
+            denial, partial catalog).
+         Indicate extensibility points for adding new library systems or  
+            APIs, including versioning of adapters
+
+   Major software interactions section
+      Strengths:
+         Interaction flows are listed: pages ↔ adapters, adapters ↔ APIs  
+            via HTTPS, Router ↔ pages, geolocation fallback, localStorage usage.
+      Suggestions:
+         Include at least one sequence diagram (e.g., “Discover: locate  
+            user → find libraries → fetch titles”) to make flows concrete.
+         Specify caching and retry policies (TTL for results, exponential
+            backoff, cache keys, stale‑while‑revalidate, rate‑limit  
+            handling).
+         Detail error propagation and user messaging patterns for network
+            failures and empty results.
+         Describe privacy safeguards in interactions (location precision
+            handling, storage minimization).
+
+   Architectural design diagrams section
+      Strengths:
+         Provides use case, component, class, and deployment views, which 
+             cover both static and dynamic perspectives.
+      Suggestions:
+         Refine diagrams for legibility and notation (use standard UML 
+             shapes and connectors; add legends and captions).
+         Add a system context diagram that shows Stacks, users, Open 
+             Library, Nominatim, and scraped sources with boundaries.
+         Show data flow direction and trust boundaries (browser vs 
+             external APIs), and annotate key protocols.
+
+
+OVERALL ASSESSMENT:
+   INTRODUCTION                        1.0
+   System objectives                   1.0
+   H/W, S/W, Human I/F                 1.0
+
+   ARCHITECTURAL DESIGN SECTION:
+   Major softwre components            1.0
+   Major software interactions         1.0
+   Architectural design diagrams       5.0
+                                     ======
+   Subtotal                           10.0
+   ------------------------------------------------------
+   Total Percentage:  10/10 = 100% which is an A-plus
+
+
+Your SDD provides a solid foundation: clear feature scope, component 
+inventory, interaction outline, and multiple diagrams.  To reach full
+completeness, consider adding system context and architectural rationale,
+formalizing interfaces and failure handling, specify caching/rate‑limits
+and privacy, and tighten up the diagrams.
+
+Very good work on this document!  By "tighten up the diagrams" I mean you
+should use a graphics package of some kind to produce them so that you're
+not using "ASCII art" to produce them.  It will look much more professional
+and will help the reader better understand the architecture of your
+application.  Just sayin'...  :)
+
+Overall, nice job!
+
+

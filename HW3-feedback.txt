@@ -1,0 +1,56 @@
+
+
+HW 3 - Stephens Book Chapters 7 and 8
+CMSI 4072 Spring 2026
+
+Category        Weight     Earned
+===========    ========    ======
+Problem 7.1    [5 pts.]      4.0
+Problem 7.2    [4 pts.]      4.0
+Problem 7.4    [5 pts.]      5.0
+Problem 7.5    [4 pts.]      4.0
+Problem 7.7    [5 pts.]      5.0
+Problem 8.1    [5 pts.]      5.0
+Problem 8.3    [5 pts.]      5.0
+Problem 8.5    [4 pts.]      4.0
+Problem 8.9    [4 pts.]      4.0
+Problem 8.11   [5 pts.]      2.0
+Problem 8.12   [4 pts.]      4.0
+
+       Subtotal [50 max]     50.0
+              Your Total     46.0
+         46.0 out of 50.0 =  92.0%
+
+         Letter grade   A-minus
+
+=================
+SPECIFIC COMMENTS:
+Problem 7.1
+   You can still remove more comments that aren't needed by getting rid of
+   the ones that simply state what the code is doing.
+Problem 7.2
+   Correct
+Problem 7.4
+   Correct
+Problem 7.5
+   Correct
+Problem 7.7
+   Correct
+Problem 8.1
+   Correct
+Problem 8.3
+   Correct
+Problem 8.5
+   Something to consider, you are missing edge cases for the boundary values
+   of -1,000,000 through +1,000,000.
+Problem 8.9
+   Black box testing doesn't check "all possible inputs" as you've stated.
+   That is "exhaustive" testing.
+Problem 8.11
+   Not quite.  You must use the pairs in each calculation, then average them
+   together.  A & B => 10, B & C => 12.5, A & C => 20 so the average is ~14
+   This means there are still 4 bugs at large.
+Problem 8.12
+   Correct
+
+nice work!
