@@ -1,0 +1,49 @@
+/* Star Rating Component */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-rating.interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.star-container {
+  position: relative;
+  display: inline-block;
+}
+
+.star-svg {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+/* Invisible hit areas for hover/click detection */
+.star-hit-area {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.star-hit-area.left {
+  left: 0;
+}
+
+.star-hit-area.right {
+  right: 0;
+}
+
+.star-rating.interactive .star-container:hover .star-svg {
+  transform: scale(1.15);
+}
+
+.rating-value {
+  margin-left: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}

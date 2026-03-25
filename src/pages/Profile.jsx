@@ -1,145 +1,332 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import ItemCard from '../components/ItemCard'
-import { mockItems } from '../data/mockData'
-import { getSavedItems, getStacks, createStack, deleteStack } from '../utils/storage'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import AuthModal from '../components/AuthModal'
 import '../styles/Profile.css'
 
 function Profile() {
-  const [savedItemIds, setSavedItemIds] = useState([])
-  const [stacks, setStacks] = useState([])
-  const [showNewStackModal, setShowNewStackModal] = useState(false)
-  const [newStackName, setNewStackName] = useState('')
+  const { currentUser, userProfile, updateUserProfile } = useAuth()
+  const [showAuthModal, setShowAuthModal] = useState(false)
+  const [editing, setEditing] = useState(false)
+  const [displayName, setDisplayName] = useState('')
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [bio, setBio] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
+  // Auto-open edit mode for new users who haven't completed their profile
   useEffect(() => {
-    // Load saved items and stacks from local storage
-    setSavedItemIds(getSavedItems())
-    setStacks(getStacks())
-  }, [])
+    if (userProfile && !userProfile.profileCompleted) {
+      setDisplayName(userProfile.displayName || '')
+      setUsername(userProfile.username || '')
+      setEmail(userProfile.email || '')
+      setBio(userProfile.bio || '')
+      setEditing(true)
+    }
+  }, [userProfile])
 
-  // Get actual item objects from IDs
-  const savedItems = mockItems.filter(item => savedItemIds.includes(item.id))
+  // Load current values when entering edit mode
+  const handleStartEdit = () => {
+    setDisplayName(userProfile?.displayName || '')
+    setUsername(userProfile?.username || '')
+    setEmail(userProfile?.email || '')
+    setBio(userProfile?.bio || '')
+    setEditing(true)
+    setError('')
+  }
 
-  const handleCreateStack = () => {
-    if (newStackName.trim()) {
-      const newStack = createStack(newStackName.trim())
-      if (newStack) {
-        setStacks([...stacks, newStack])
-        setNewStackName('')
-        setShowNewStackModal(false)
+  const handleCancelEdit = () => {
+    setEditing(false)
+    setDisplayName('')
+    setUsername('')
+    setEmail('')
+    setBio('')
+    setError('')
+  }
+
+  const handleSaveProfile = async () => {
+    if (!displayName.trim()) {
+      setError('Display name is required')
+      return
+    }
+
+    if (!username.trim()) {
+      setError('Username is required')
+      return
+    }
+
+    if (username.length < 3 || username.length > 30) {
+      setError('Username must be 3-30 characters')
+      return
+    }
+
+    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+      setError('Username can only contain letters, numbers, and underscores')
+      return
+    }
+
+    if (!email.trim() || !email.includes('@')) {
+      setError('Please enter a valid email address')
+      return
+    }
+
+    try {
+      setSaving(true)
+      setError('')
+      await updateUserProfile({
+        displayName: displayName.trim(),
+        username: username.toLowerCase().trim(),
+        email: email.trim(),
+        bio: bio.trim(),
+        profileCompleted: true
+      })
+      setEditing(false)
+    } catch (error) {
+      console.error('Failed to update profile:', error)
+      if (error.message === 'Username already taken') {
+        setError('This username is already taken. Please choose another.')
+      } else if (error.code === 'auth/email-already-in-use') {
+        setError('This email is already in use by another account.')
+      } else if (error.code === 'auth/invalid-email') {
+        setError('Please enter a valid email address.')
+      } else if (error.code === 'auth/requires-recent-login') {
+        setError('For security, please sign out and sign back in before changing your email.')
+      } else {
+        setError('Failed to save changes. Please try again.')
       }
+    } finally {
+      setSaving(false)
     }
   }
 
-  const handleDeleteStack = (stackId) => {
-    if (window.confirm('Are you sure you want to delete this stack?')) {
-      deleteStack(stackId)
-      setStacks(stacks.filter(s => s.id !== stackId))
+  const handleSkipProfile = async () => {
+    try {
+      setSaving(true)
+      await updateUserProfile({
+        profileCompleted: true
+      })
+      setEditing(false)
+    } catch (error) {
+      console.error('Failed to skip profile setup:', error)
+    } finally {
+      setSaving(false)
     }
   }
 
+  // Signed-out state
+  if (!currentUser) {
+    return (
+      <div className="profile-page">
+        <div className="profile-container">
+          <div className="signed-out-profile">
+            <div className="signed-out-icon">👤</div>
+            <h2>Sign In to View Your Profile</h2>
+            <p>Access your reading shelves, reviews, and personalized recommendations.</p>
+            <button 
+              className="btn btn-primary btn-large"
+              onClick={() => setShowAuthModal(true)}
+            >
+              Sign In
+            </button>
+            <p className="signed-out-signup">
+              Don't have an account?{' '}
+              <button 
+                className="link-button" 
+                onClick={() => {
+                  setShowAuthModal(true)
+                }}
+              >
+                Join now
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <AuthModal 
+          isOpen={showAuthModal} 
+          onClose={() => setShowAuthModal(false)}
+          initialMode="login"
+        />
+      </div>
+    )
+  }
+
+  // Loading state
+  if (!userProfile) {
+    return (
+      <div className="profile-page">
+        <div className="loading">Loading profile...</div>
+      </div>
+    )
+  }
+
+  // Logged-in state
   return (
     <div className="profile-page">
-      <div className="profile-header">
-        <div className="profile-info">
-          <div className="profile-avatar">
-            <span>H</span>
+      <div className="profile-container">
+        <div className="profile-header-card">
+          <div className="profile-avatar-large">
+            {userProfile.photoURL ? (
+              <img src={userProfile.photoURL} alt={userProfile.displayName} />
+            ) : (
+              <span>{userProfile.displayName?.charAt(0).toUpperCase() || 'U'}</span>
+            )}
           </div>
-          <div>
-            <h1 className="profile-name">Your Profile</h1>
-            <p className="profile-subtitle">Manage your saved items and collections</p>
-          </div>
-        </div>
-      </div>
+          
+          {!editing ? (
+            <div className="profile-info-display">
+              <h1>{userProfile.displayName}</h1>
+              <p className="profile-username">@{userProfile.username}</p>
+              {userProfile.bio && (
+                <p className="profile-bio">{userProfile.bio}</p>
+              )}
+              <button 
+                className="btn btn-secondary" 
+                onClick={handleStartEdit}
+              >
+                Edit Profile
+              </button>
+            </div>
+          ) : (
+            <div className="profile-edit-form">
+              <h2>{userProfile.profileCompleted ? 'Edit Profile' : 'Complete Your Profile'}</h2>
+              {!userProfile.profileCompleted && (
+                <p className="profile-setup-message">Welcome to Stacks! Tell us a bit about yourself to personalize your experience.</p>
+              )}
+              
+              {error && <div className="error-message">{error}</div>}
+              
+              <div className="form-group">
+                <label htmlFor="displayName">Display Name</label>
+                <input
+                  id="displayName"
+                  type="text"
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
+                  placeholder="Your name"
+                  maxLength={50}
+                />
+              </div>
 
-      <section className="profile-section">
-        <h2 className="section-title">Your Stacks</h2>
-        <div className="stacks-container">
-          {stacks.map(stack => {
-            const stackItems = mockItems.filter(item => stack.items.includes(item.id))
-            return (
-              <div key={stack.id} className="stack-collection">
-                <div className="stack-collection-header">
-                  <h3 className="stack-collection-name">{stack.name}</h3>
-                  <div className="stack-collection-actions">
-                    <span className="stack-collection-count">{stack.items.length} items</span>
-                    <button 
-                      className="delete-stack-btn"
-                      onClick={() => handleDeleteStack(stack.id)}
-                      aria-label="Delete stack"
-                    >
-                      ×
-                    </button>
-                  </div>
-                </div>
-                {stackItems.length > 0 ? (
-                  <div className="stack-items-horizontal">
-                    {stackItems.map(item => (
-                      <Link key={item.id} to={`/item/${item.id}`} className="stack-item-preview">
-                        <img src={item.image} alt={item.name} />
-                        <div className="stack-item-info">
-                          <p className="stack-item-name">{item.name}</p>
-                          <p className="stack-item-category">{item.category}</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="stack-empty">
-                    <p>No items in this stack yet. Browse items and save them here!</p>
-                  </div>
+              <div className="form-group">
+                <label htmlFor="username">Username</label>
+                <input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value.toLowerCase())}
+                  placeholder="Choose a username"
+                  minLength={3}
+                  maxLength={30}
+                />
+                <small>3-30 characters. Letters, numbers, and underscores only.</small>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                />
+                {userProfile.email !== email && (
+                  <small className="warning-hint">Changing your email will update your login credentials.</small>
                 )}
               </div>
-            )
-          })}
-          <div 
-            className="stack-collection stack-collection-new"
-            onClick={() => setShowNewStackModal(true)}
-          >
-            <span className="new-stack-icon">+</span>
-            <p>Create New Stack</p>
-          </div>
+
+              <div className="form-group">
+                <label htmlFor="bio">Bio</label>
+                <textarea
+                  id="bio"
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  placeholder="Tell us about yourself and your reading interests..."
+                  maxLength={500}
+                  rows={4}
+                />
+                <small>{bio.length}/500 characters</small>
+              </div>
+
+              <div className="form-actions">
+                {userProfile.profileCompleted ? (
+                  <>
+                    <button 
+                      className="btn btn-secondary" 
+                      onClick={handleCancelEdit}
+                      disabled={saving}
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      className="btn btn-primary" 
+                      onClick={handleSaveProfile}
+                      disabled={saving}
+                    >
+                      {saving ? 'Saving...' : 'Save Changes'}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button 
+                      className="btn btn-secondary" 
+                      onClick={handleSkipProfile}
+                      disabled={saving}
+                    >
+                      Skip for Now
+                    </button>
+                    <button 
+                      className="btn btn-primary" 
+                      onClick={handleSaveProfile}
+                      disabled={saving}
+                    >
+                      {saving ? 'Saving...' : 'Continue'}
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
-        {showNewStackModal && (
-          <div className="modal-overlay" onClick={() => setShowNewStackModal(false)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <h3>Create New Stack</h3>
-              <input
-                type="text"
-                placeholder="Stack name..."
-                value={newStackName}
-                onChange={(e) => setNewStackName(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleCreateStack()}
-                autoFocus
-              />
-              <div className="modal-actions">
-                <button className="btn btn-secondary" onClick={() => setShowNewStackModal(false)}>
-                  Cancel
-                </button>
-                <button className="btn btn-primary" onClick={handleCreateStack}>
-                  Create
-                </button>
+        <div className="profile-stats">
+          <div className="stat-card" onClick={() => navigate('/shelves')}>
+            <h3>My Shelves</h3>
+            <p>View your reading lists</p>
+            <button className="btn btn-secondary btn-full">
+              Go to Shelves →
+            </button>
+          </div>
+
+          <div className="stat-card">
+            <h3>Account</h3>
+            <div className="account-info">
+              <div className="account-row">
+                <span className="account-label">Username:</span>
+                <span className="account-value">@{userProfile.username}</span>
+              </div>
+              <div className="account-row">
+                <span className="account-label">Email:</span>
+                <span className="account-value">{userProfile.email}</span>
+              </div>
+              <div className="account-row">
+                <span className="account-label">Member since:</span>
+                <span className="account-value">
+                  {userProfile.createdAt ? 
+                    new Date(userProfile.createdAt.toDate()).toLocaleDateString('en-US', { 
+                      month: 'long', 
+                      year: 'numeric' 
+                    }) 
+                    : 'Recently'}
+                </span>
               </div>
             </div>
           </div>
-        )}
-      </section>
-
-      <section className="profile-section">
-        <h2 className="section-title">Saved Items ({savedItems.length})</h2>
-        {savedItems.length > 0 ? (
-          <div className="saved-items-grid">
-            {savedItems.map(item => (
-              <ItemCard key={item.id} item={item} />
-            ))}
-          </div>
-        ) : (
-          <div className="empty-state">
-            <p>No saved items yet. Start exploring and save items you're interested in!</p>
-          </div>
-        )}
-      </section>
+        </div>
+      </div>
     </div>
   )
 }
