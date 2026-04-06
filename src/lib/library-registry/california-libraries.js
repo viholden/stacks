@@ -15,7 +15,8 @@ export const CALIFORNIA_LIBRARIES = [
     name: 'Los Angeles Public Library',
     shortName: 'LAPL',
     website: 'https://www.lapl.org',
-    adapterType: 'lapl', // Uses custom LAPL adapter
+    adapterType: 'lapl',
+    customSearchPattern: 'https://ls2pac.lapl.org/?section=search&term={QUERY}',
     branches: [
       // Central Library
       {
@@ -979,7 +980,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'LA County Library',
     website: 'https://lacountylibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://lacountylibrary.org/online_service/onlinecatalog/?ty=kw&q={QUERY}',
+    customSearchPattern: 'https://catalog.lacountylibrary.org/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'lacounty-acton-agua-dulce',
@@ -1719,7 +1720,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Long Beach',
     website: 'https://www.longbeach.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://longbeach.na5.iiivega.com/search/query?term={QUERY}',
+    customSearchPattern: 'https://longbeach.na5.iiivega.com/search?query={QUERY}',
     branches: [
       {
         id: 'longbeach-main',
@@ -1887,7 +1888,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Santa Monica',
     website: 'https://smpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://smpl.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://smpl.bibliocommons.com/v2/search?query={QUERY}&searchType=smart',
     branches: [
       {
         id: 'santamonica-main',
@@ -1964,7 +1965,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Pasadena',
     website: 'https://www.cityofpasadena.net/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://pasadena.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://pasadena.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=ILS',
     branches: [
       {
         id: 'pasadena-central',
@@ -2106,7 +2107,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Glendale',
     website: 'https://www.glendaleca.gov/government/departments/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://glendale.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://glac.bibliocommons.com/v2/search?query={QUERY}&searchType=smart',
     branches: [
       {
         id: 'glendale-central',
@@ -2222,7 +2223,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Burbank',
     website: 'https://www.burbankca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://burbank.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://burb.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'burbank-central',
@@ -2273,7 +2274,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Torrance',
     website: 'https://www.torranceca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://torrance.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://torrance.polarislibrary.com/polaris/search/searchresults.aspx?term={QUERY}',
     branches: [
       {
         id: 'torrance-katy-geissert',
@@ -2440,7 +2441,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Beverly Hills',
     website: 'https://www.beverlyhills.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://beverlyhills.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://bhpl.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}',
     branches: [
       {
         id: 'beverlyhills-main',
@@ -2690,7 +2691,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Redondo Beach',
     website: 'https://www.redondo.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://redondobeach.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://redon.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'redondobeach-main',
@@ -2840,7 +2841,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'PVLD',
     website: 'https://www.pvld.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://pvld.biblionix.com/catalog/biblio/search?q={QUERY}',
+    customSearchPattern: 'https://palos.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}',
     branches: [
       {
         id: 'pvld-miraleste',
@@ -2956,7 +2957,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'OC Libraries',
     website: 'https://www.ocpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://catalog.ocpl.org/client/en_US/default/search/results?qu={QUERY}',
+    customSearchPattern: 'https://catalog.ocpl.org/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'ocpl-aliso-viejo',
@@ -3150,7 +3151,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Anaheim',
     website: 'https://www.anaheim.net/facilities',
     adapterType: 'generic',
-    customSearchPattern: 'https://anaheim.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://ana.ent.sirsi.net/client/en_US/virtual/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'anaheim-central',
@@ -3227,7 +3228,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Huntington Beach',
     website: 'https://www.hbpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://huntingtonbeach.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://hbpl.ent.sirsi.net/client/en_US/default/search/results?q={QUERY}&search-type=catalog',
     branches: [
       {
         id: 'huntingtonbeach-central',
@@ -3278,7 +3279,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Newport Beach',
     website: 'https://www.newportbeachca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://newportbeach.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://nb.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'newportbeach-central',
@@ -3342,7 +3343,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Fullerton',
     website: 'https://www.fullertonlibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://fullerton.biblionix.com/catalog/biblio/search?q={QUERY}',
+    customSearchPattern: 'https://fullerton.ent.sirsi.net/client/en_US/FPL/search/results?qu={QUERY}',
     branches: [
       {
         id: 'fullerton-main',
@@ -3382,7 +3383,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'San Diego',
     website: 'https://www.sandiego.gov/public-library',
     adapterType: 'generic',
-    customSearchPattern: 'https://sandiego.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sandiego.bibliocommons.com/v2/search?query={QUERY}&searchType=smart',
     branches: [
       {
         id: 'sandiego-central',
@@ -3524,7 +3525,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'SD County Library',
     website: 'https://www.sdcl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sdcl.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sdcl.bibliocommons.com/v2/search?query={QUERY}&searchType=smart',
     branches: [
       {
         id: 'sdcounty-alpine',
@@ -3720,7 +3721,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Riverside County',
     website: 'https://www.rivlib.info',
     adapterType: 'generic',
-    customSearchPattern: 'https://rivlib.info/search/results?qu={QUERY}',
+    customSearchPattern: 'https://inland.librarycatalog.info/polaris/search/searchresults.aspx?ctx=103.1033.0.0.9&type=Keyword&term={QUERY}&by=KW&sort=RELEVANCE&limit=TOM=*&query=&page=0&searchid=1',
     branches: [
       {
         id: 'riverside-arlanza',
@@ -3914,7 +3915,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'San Bernardino County',
     website: 'https://sbcl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sbcl.org/search/results?qu={QUERY}',
+    customSearchPattern: 'https://sbclib.polarislibrary.com/polaris/search/searchresults.aspx?ctx=1.1033.0.0.3&type=Keyword&term={QUERY}&by=KW&sort=MP&limit=TOM=*&query=&page=0&searchid=1',
     branches: [
       {
         id: 'sanbernardino-alta-loma',
@@ -4084,7 +4085,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Ventura County',
     website: 'https://www.vencolibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://vencolibrary.org/search/results?qu={QUERY}',
+    customSearchPattern: 'https://vent2.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}',
     branches: [
       {
         id: 'ventura-e-p-foster',
@@ -4189,7 +4190,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'SF Public Library',
     website: 'https://sfpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sfpl.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sfpl.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'sfpl-main',
@@ -4552,7 +4553,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Oakland',
     website: 'https://oaklandlibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://oaklandlibrary.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://oakland.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'oakland-main',
@@ -4759,7 +4760,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'San José',
     website: 'https://www.sjpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sjpl.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sjpl.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'sanjose-king',
@@ -5018,7 +5019,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Berkeley',
     website: 'https://www.berkeleypubliclibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://berkeley.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://berk.iii.com/iii/encore/search/C__S{QUERY}__Orightresult__U?lang=eng',
     branches: [
       {
         id: 'berkeley-central',
@@ -5097,7 +5098,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Sacramento',
     website: 'https://www.saclibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sacramento.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://saclib.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'sacramento-central',
@@ -5487,7 +5488,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Sonoma County',
     website: 'https://sonomalibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sonomalibrary.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://find.sonomalibrary.org/Explore/Search?q={QUERY}',
     branches: [
       {
         id: 'sonoma-central',
@@ -5564,7 +5565,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Marin County',
     website: 'https://marinlibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://marin.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://marinlibrary.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'marin-corte-madera',
@@ -5628,7 +5629,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Napa',
     website: 'https://www.countyofnapa.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://napa.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://napa.polarislibrary.com/polaris/search/searchresults.aspx?term={QUERY}',
     branches: [
       {
         id: 'napa-main',
@@ -5692,7 +5693,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Solano County',
     website: 'https://solanolibrary.com',
     adapterType: 'generic',
-    customSearchPattern: 'https://solanolibrary.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://solanolibrary.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'solano-fairfield-civic',
@@ -5758,7 +5759,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Alameda County',
     website: 'https://aclibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://aclibrary.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://aclibrary.org/v2/search?query={QUERY}',
     branches: [
       {
         id: 'alamedacounty-albany',
@@ -5835,7 +5836,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Contra Costa',
     website: 'https://ccclib.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://ccclib.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://ccclib.org/v2/search?query={QUERY}',
     branches: [
       {
         id: 'ccclib-antioch',
@@ -5992,7 +5993,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'San Mateo County',
     website: 'https://www.plsinfo.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://pls.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://pls.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'peninsula-atherton',
@@ -6147,7 +6148,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Santa Clara County',
     website: 'https://sccld.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sccld.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sccld.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'sccld-campbell',
@@ -6252,7 +6253,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Placer County',
     website: 'https://www.placer.ca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://placer.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://placer.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'placer-auburn',
@@ -6303,7 +6304,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'El Dorado County',
     website: 'https://www.eldoradolibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://eldorado.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://eldorado.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'eldorado-placerville',
@@ -6354,7 +6355,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Yolo County',
     website: 'https://yolocountylibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://yolo.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://yolo.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'yolo-davis',
@@ -6407,7 +6408,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Santa Cruz',
     website: 'https://www.santacruzpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://santacruz.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://santacruz.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'santacruz-central',
@@ -6471,7 +6472,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Monterey County',
     website: 'https://www.co.monterey.ca.us/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://montereycounty.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://montereycounty.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'monterey-seaside',
@@ -6524,7 +6525,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'San Joaquin County',
     website: 'https://www.ssjcpl.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://sanjoaquin.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://sanjoaquin.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'sanjoaquin-stockton',
@@ -6575,7 +6576,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Stanislaus County',
     website: 'https://www.stanislauslibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://stanislaus.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://stanislaus.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'stanislaus-modesto',
@@ -6626,7 +6627,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Merced County',
     website: 'https://www.countyofmerced.com/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://merced.bibliocommons.com/search?q={QUERY}&t=keyword',
+    customSearchPattern: 'https://merced.bibliocommons.com/v2/search?query={QUERY}',
     branches: [
       {
         id: 'merced-main',

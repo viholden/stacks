@@ -1,0 +1,123 @@
+/* Library Savings Component */
+.library-savings-card {
+  background: linear-gradient(135deg, #2d5016 0%, #1a3d0a 100%);
+  color: var(--warm-white);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 16px rgba(45, 80, 22, 0.25);
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.savings-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.library-savings-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: var(--warm-white);
+  font-family: 'Crimson Text', 'Georgia', serif;
+}
+
+.savings-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 2rem;
+}
+
+.savings-stat {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--warm-white);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.savings-stat.highlight .stat-value {
+  color: var(--gold);
+  text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.savings-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.savings-note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  line-height: 1.5;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-text, .no-savings-text {
+  margin: 1rem 0;
+  opacity: 0.9;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .library-savings-card {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .savings-icon {
+    font-size: 2.5rem;
+  }
+
+  .library-savings-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .savings-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .savings-divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}

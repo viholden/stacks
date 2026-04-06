@@ -6,6 +6,7 @@ import { collection, query, getDocs, orderBy, doc, deleteDoc, serverTimestamp, a
 import AuthModal from '../../components/AuthModal'
 import StarRating from '../../components/StarRating'
 import BarcodeScanner from '../../components/BarcodeScanner'
+import StackMatch from '../../components/StackMatch'
 import './Shelves.css'
 
 export default function Shelves() {
@@ -762,6 +763,13 @@ export default function Shelves() {
             <p>Add books to your shelves to keep track of what you want to read, what you're reading, and what you've read.</p>
             <button className="btn btn-primary">Add Your First Book</button>
           </div>
+        )}
+
+        {/* Stack Match - AI Recommendations */}
+        {currentUser && (
+          <section className="stack-match-section">
+            <StackMatch />
+          </section>
         )}
 
         {/* New Shelf Modal */}

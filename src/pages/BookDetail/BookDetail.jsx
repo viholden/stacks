@@ -6,6 +6,7 @@ import { doc, getDoc, collection, query, where, getDocs, orderBy, addDoc, server
 import StarRating from '../../components/StarRating'
 import ReviewForm from '../../components/ReviewForm'
 import AuthModal from '../../components/AuthModal'
+import SimilarBooks from '../../components/SimilarBooks'
 import './BookDetail.css'
 
 export default function BookDetail() {
@@ -472,6 +473,9 @@ export default function BookDetail() {
             <p className="no-reviews">No reviews yet. Be the first to review this book!</p>
           )}
         </section>
+
+        {/* Similar Books Section */}
+        <SimilarBooks book={book} />
       </div>
 
       {/* Review Form Modal */}

@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import AuthModal from '../components/AuthModal'
+import LibrarySavings from '../components/LibrarySavings'
 import '../styles/Profile.css'
 
 function Profile() {
-  const { currentUser, userProfile, updateUserProfile } = useAuth()
+  const { currentUser, userProfile, updateUserProfile, logout } = useAuth()
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [editing, setEditing] = useState(false)
   const [displayName, setDisplayName] = useState('')
@@ -112,6 +113,15 @@ function Profile() {
       console.error('Failed to skip profile setup:', error)
     } finally {
       setSaving(false)
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/')
+    } catch (error) {
+      console.error('Failed to log out:', error)
     }
   }
 
@@ -292,6 +302,9 @@ function Profile() {
           )}
         </div>
 
+        {/* Library Savings */}
+        <LibrarySavings userId={currentUser.uid} />
+
         <div className="profile-stats">
           <div className="stat-card" onClick={() => navigate('/shelves')}>
             <h3>My Shelves</h3>
@@ -324,6 +337,12 @@ function Profile() {
                 </span>
               </div>
             </div>
+            <button 
+              className="btn btn-danger btn-full sign-out-btn" 
+              onClick={handleLogout}
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       </div>

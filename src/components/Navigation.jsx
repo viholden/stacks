@@ -1,26 +1,16 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import AuthModal from './AuthModal'
 import '../styles/Navigation.css'
 
 function Navigation() {
   const location = useLocation()
-  const navigate = useNavigate()
-  const { currentUser, userProfile, logout } = useAuth()
+  const { currentUser, userProfile } = useAuth()
   const [showAuthModal, setShowAuthModal] = useState(false)
 
   const isActive = (path) => {
     return location.pathname === path ? 'active' : ''
-  }
-
-  const handleLogout = async () => {
-    try {
-      await logout()
-      navigate('/')
-    } catch (error) {
-      console.error('Failed to log out:', error)
-    }
   }
 
   return (
@@ -47,14 +37,9 @@ function Navigation() {
             </Link>
             
             {currentUser ? (
-              <>
-                <Link to="/profile" className={`nav-link ${isActive('/profile')}`}>
-                  {userProfile?.username || 'Profile'}
-                </Link>
-                <button onClick={handleLogout} className="nav-link nav-button">
-                  Sign Out
-                </button>
-              </>
+              <Link to="/profile" className={`nav-link ${isActive('/profile')}`}>
+                {userProfile?.username || 'Profile'}
+              </Link>
             ) : (
               <button onClick={() => setShowAuthModal(true)} className="nav-link nav-button nav-signin">
                 Sign In
