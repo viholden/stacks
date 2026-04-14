@@ -62,3 +62,18 @@ items in the Functional and Performance sections.
 Nice work on this deliverable ~ keep up the good work!
 
 
+
+
+SRS SECOND PASS
+===============
+Looks like updates were done to address at least some of the comments above.
+However, there are still a few problems:
+   In the intro, you state there are "four primary components" but you list
+      six items
+   You also have a heading "High-level component diagram:" which contains a
+      bullet list but no diagrams
+   None of your "shall" statements are numbered
+   Several of your requirements need splitting into two or even three
+      statements for specificity
+Still and all, Hannah ~ very nice work!  Keep it up: you are becoming a very
+thoughtful and mindful software engineer ~ be proud!

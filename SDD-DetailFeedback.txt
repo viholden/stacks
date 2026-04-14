@@ -1,0 +1,91 @@
+
+Documentation Feedback ~ Deliverable #4
+Software Design Document ~ Detailed Design
+CMSI 4072 Spring 2026
+==========================================
+
+DETAILED CLASS DESCRIPTIONS:
+   Strengths
+      This section provides a solid identification of Computer
+         Software Units across routing, page components, shared UI
+         components, data adapters, and specialized subsystems.
+      The inclusion of non-UI CSUs (e.g., adapters, recommendation
+         engine, shelf manager) indicates an understanding that detailed
+         design extends beyond visible components to supporting logic
+         and services.
+   Suggestions
+      For a detailed design–level SDD, representative methods and key
+         data members should be documented for major logical CSUs
+
+DETAILED INTERFACE DESCRIPTIONS:
+   Strengths
+      Major software interactions are clearly enumerated.
+      The list captures the dominant control and data flows
+         within the system.
+   Suggestions
+      For improved completeness, one or two critical interfaces should
+         be specified with parameter definitions, return types, and
+         failure conditions.
+
+DETAILED DATA STRUCTURE DESCRIPTIONS:
+   Strengths
+      The document clearly identifies the main data sources used by
+         the system
+      Firestore collections and their purpose are explicitly listed,
+         and the relationship between user data, shelves, and books is
+         easy to understand.
+   Suggestions
+      Data structures are described at a high level only.
+      Providing canonical data models for core entities would improve
+         clarity, consistency across CSUs, and readiness for
+         implementation or review.
+
+DETAILED DESIGN DIAGRAMS:
+   Strengths
+      The diagrams align with the written architecture, reinforcing
+         the separation between UI, routing, adapters, and external
+         services.
+   Suggestions
+      Diagrams are largely presented with minimal explanatory text.
+         Short narratives explaining what each diagram shows and how it
+         should be interpreted would significantly improve their value.
+
+DATABASE DESIGN AND DESCRIPTION:
+   Strengths
+      This section clearly explains the hybrid data approach,
+         separating external public data (Open Library, Nominatim,
+         pre-scraped catalogs) from user-specific persisted data.
+   Suggestions
+      A brief discussion of expected data growth or synchronization
+         considerations would further strengthen this section.
+
+
+----------------------------------------------
+OVERALL ASSESSMENT:
+   Category                          Points
+   Class Descriptions:                  3 of  3
+   Interface Descriptions:              3 of  3
+   Data structure Descriptions:         1 of  1
+   Design diagrams:                     3 of  3
+   Database design/descriptions:        2 of  2    [this is a gimme]
+                                     ===========
+   Subtotal                            10 of 10
+   ------------------------------------------------------
+   Total Percentage:  10/10 = 100% which is an A-plus
+
+
+OVERALL EVALUATION
+==================
+As a detailed-design–level SDD, this document is **mostly
+complete**. It clearly identifies system components, major
+interactions, architectural structure, and persistence design.
+
+However, many elements remain closer to high-level design than
+full detailed design. Expanding CSU specifications, formalizing
+interface contracts, and defining core data models would be the
+primary steps needed to make the document fully
+implementation-ready for both waterfall review and agile
+development.
+
+Very nice work on this, detailed and well-thought-out.  Up to your usual
+level of excellence, Hannah!
