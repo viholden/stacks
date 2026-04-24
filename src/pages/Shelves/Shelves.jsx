@@ -7,6 +7,9 @@ import AuthModal from '../../components/AuthModal'
 import StarRating from '../../components/StarRating'
 import BarcodeScanner from '../../components/BarcodeScanner'
 import StackMatch from '../../components/StackMatch'
+import GoodreadsImport from '../../components/GoodreadsImport'
+import BookCover from '../../components/BookCover'
+import BookshelfArt from '../../components/BookshelfArt'
 import './Shelves.css'
 
 export default function Shelves() {
@@ -30,6 +33,8 @@ export default function Shelves() {
   const [showBarcodeScanner, setShowBarcodeScanner] = useState(false)
   const [scannedISBN, setScannedISBN] = useState('')
   const [manualISBNEntry, setManualISBNEntry] = useState(false)
+  const [selectedShelf, setSelectedShelf] = useState(null)
+  const [shelfReviews, setShelfReviews] = useState({})
   const { currentUser, userProfile } = useAuth()
   const navigate = useNavigate()
 
@@ -79,6 +84,26 @@ export default function Shelves() {
     } finally {
       setLoading(false)
     }
+  }
+
+  async function openShelfPopup(shelf) {
+    setSelectedShelf(shelf)
+    // Load reviews for books on this shelf
+    const reviews = {}
+    for (const book of shelf.books) {
+      try {
+        const reviewsRef = collection(db, 'reviews')
+        const reviewsQuery = query(reviewsRef, where('bookId', '==', book.bookId), where('userId', '==', currentUser.uid))
+        const reviewsSnapshot = await getDocs(reviewsQuery)
+        if (!reviewsSnapshot.empty) {
+          const reviewData = reviewsSnapshot.docs[0].data()
+          reviews[book.bookId] = { rating: reviewData.rating, reviewText: reviewData.reviewText }
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+    setShelfReviews(reviews)
   }
 
   async function searchBooks(query) {
@@ -236,9 +261,12 @@ export default function Shelves() {
         }
       }
 
-      // Add to new shelf
+      // Add to new shelf (check for duplicate first)
       const newShelfBooksRef = collection(db, 'users', currentUser.uid, 'shelves', toShelfId, 'books')
-      await addDoc(newShelfBooksRef, newBookData)
+      const dupCheck = await getDocs(query(newShelfBooksRef, where('bookId', '==', bookData.bookId)))
+      if (dupCheck.empty) {
+        await addDoc(newShelfBooksRef, newBookData)
+      }
 
       // Reload shelves
       await loadShelvesAndBooks()
@@ -309,7 +337,10 @@ export default function Shelves() {
 
       // Add to read shelf
       const readShelfBooksRef = collection(db, 'users', currentUser.uid, 'shelves', 'read', 'books')
-      await addDoc(readShelfBooksRef, newBookData)
+      const dupCheck2 = await getDocs(query(readShelfBooksRef, where('bookId', '==', bookToMarkAsRead.bookId)))
+      if (dupCheck2.empty) {
+        await addDoc(readShelfBooksRef, newBookData)
+      }
 
       // If user provided a rating, save it
       if (finishBookRating > 0) {
@@ -480,9 +511,11 @@ export default function Shelves() {
                       onClick={() => setShowSearchResults(false)}
                     >
                       {result.cover_id ? (
-                        <img
-                          src={`https://covers.openlibrary.org/b/id/${result.cover_id}-S.jpg`}
-                          alt={result.title}
+                        <BookCover
+                          coverId={result.cover_id}
+                          title={result.title}
+                          authors={result.authors}
+                          size="S"
                           className="search-result-cover"
                         />
                       ) : (
@@ -617,9 +650,11 @@ export default function Shelves() {
                     onClick={() => setShowSearchResults(false)}
                   >
                     {result.cover_id ? (
-                      <img
-                        src={`https://covers.openlibrary.org/b/id/${result.cover_id}-S.jpg`}
-                        alt={result.title}
+                      <BookCover
+                        coverId={result.cover_id}
+                        title={result.title}
+                        authors={result.authors}
+                        size="S"
                         className="search-result-cover"
                       />
                     ) : (
@@ -651,17 +686,13 @@ export default function Shelves() {
               {currentlyReading.map(book => (
                 <div key={book.id} className="reading-card">
                   <Link to={`/book/${book.bookId}`} className="book-cover-link">
-                    {book.covers && book.covers.length > 0 ? (
-                      <img
-                        src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
-                        alt={book.title}
-                        className="book-cover"
-                      />
-                    ) : (
-                      <div className="book-cover-placeholder">
-                        <span>{book.title}</span>
-                      </div>
-                    )}
+                    <BookCover
+                      coverId={book.covers?.[0]}
+                      title={book.title}
+                      authors={book.authors}
+                      size="L"
+                      className="book-cover"
+                    />
                   </Link>
                   <div className="reading-card-info">
                     <Link to={`/book/${book.bookId}`} className="book-title">
@@ -691,12 +722,19 @@ export default function Shelves() {
           </section>
         )}
 
+        {/* Bookshelf Art */}
+        {shelves.find(s => s.id === 'read')?.books?.length > 0 && (
+          <section className="bookshelf-art-section">
+            <BookshelfArt books={shelves.find(s => s.id === 'read').books} />
+          </section>
+        )}
+
         {/* Shelves Grid */}
         <section className="shelves-section">
           <h2>My Shelves</h2>
           <div className="shelves-grid">
             {shelves.map(shelf => (
-              <div key={shelf.id} className="shelf-card">
+              <div key={shelf.id} className="shelf-card" onClick={() => openShelfPopup(shelf)} style={{ cursor: 'pointer' }}>
                 <div className="shelf-header">
                   <h3>{shelf.name}</h3>
                   <span className="shelf-count">{shelf.books.length} books</span>
@@ -710,16 +748,12 @@ export default function Shelves() {
                         to={`/book/${book.bookId}`}
                         className="shelf-book-cover"
                       >
-                        {book.covers && book.covers.length > 0 ? (
-                          <img
-                            src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-M.jpg`}
-                            alt={book.title}
-                          />
-                        ) : (
-                          <div className="shelf-book-placeholder">
-                            {book.title.substring(0, 1)}
-                          </div>
-                        )}
+                        <BookCover
+                          coverId={book.covers?.[0]}
+                          title={book.title}
+                          authors={book.authors}
+                          size="M"
+                        />
                       </Link>
                     ))}
                     {shelf.books.length > 4 && (
@@ -769,6 +803,13 @@ export default function Shelves() {
         {currentUser && (
           <section className="stack-match-section">
             <StackMatch />
+          </section>
+        )}
+
+        {/* Goodreads Import */}
+        {currentUser && (
+          <section className="goodreads-import-section">
+            <GoodreadsImport onComplete={() => loadShelvesAndBooks()} />
           </section>
         )}
 
@@ -845,9 +886,8 @@ export default function Shelves() {
                     value={finishBookReview}
                     onChange={(e) => setFinishBookReview(e.target.value)}
                     rows={4}
-                    maxLength={1000}
                   />
-                  <small className="finish-hint">{finishBookReview.length}/1000 characters</small>
+                  <small className="finish-hint">Optional</small>
                 </div>
 
                 {/* Library Question */}
@@ -885,6 +925,62 @@ export default function Shelves() {
                 >
                   {movingBook ? 'Saving...' : 'From Library'}
                 </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Shelf Detail Popup */}
+        {selectedShelf && (
+          <div className="modal-overlay" onClick={() => setSelectedShelf(null)}>
+            <div className="modal-content shelf-detail-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>{selectedShelf.name}</h2>
+                <span className="shelf-detail-count">{selectedShelf.books.length} books</span>
+                <button className="modal-close" onClick={() => setSelectedShelf(null)}>&times;</button>
+              </div>
+              <div className="shelf-detail-books">
+                {selectedShelf.books.length === 0 ? (
+                  <p className="shelf-detail-empty">No books on this shelf yet.</p>
+                ) : (
+                  selectedShelf.books.map(book => (
+                    <Link
+                      key={book.id}
+                      to={`/book/${book.bookId}`}
+                      className="shelf-detail-book"
+                      onClick={() => setSelectedShelf(null)}
+                    >
+                      <div className="shelf-detail-cover">
+                        <BookCover
+                          coverId={book.covers?.[0]}
+                          title={book.title}
+                          authors={book.authors}
+                          size="M"
+                        />
+                      </div>
+                      <div className="shelf-detail-info">
+                        <h4>{book.title}</h4>
+                        <p className="shelf-detail-author">
+                          {book.authors ? book.authors.join(', ') : 'Unknown Author'}
+                        </p>
+                        {shelfReviews[book.bookId] && (
+                          <>
+                            <div className="shelf-detail-rating">
+                              {'★'.repeat(Math.floor(shelfReviews[book.bookId].rating))}
+                              {'☆'.repeat(5 - Math.floor(shelfReviews[book.bookId].rating))}
+                              <span> {shelfReviews[book.bookId].rating}/5</span>
+                            </div>
+                            {shelfReviews[book.bookId].reviewText && (
+                              <p className="shelf-detail-review">
+                                "{shelfReviews[book.bookId].reviewText}"
+                              </p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </Link>
+                  ))
+                )}
               </div>
             </div>
           </div>

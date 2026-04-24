@@ -261,3 +261,69 @@ REASON: [why it's similar]
     throw error;
   }
 }
+
+/**
+ * Get general book recommendations (not from user's shelves)
+ * based on reading history and preferences
+ */
+export async function getGeneralRecommendations(readBooks = [], preferences = {}) {
+  const readingHistory = readBooks.length > 0
+    ? readBooks.map(book => 
+        `"${book.title}" by ${book.authors ? book.authors.join(', ') : 'Unknown'}`
+      ).join('\n')
+    : 'No reading history available';
+
+  let prompt = `You are a book recommendation expert.
+
+The user has recently read these books:
+${readingHistory}
+
+${preferences.genre ? `Preferred genre: ${preferences.genre}` : ''}
+${preferences.mood ? `Current mood: ${preferences.mood}` : ''}
+${preferences.trope ? `Favorite tropes: ${preferences.trope}` : ''}
+${preferences.vibe ? `Specific vibe: ${preferences.vibe}` : ''}
+
+Recommend 3 books that are NOT on the user's list that they would enjoy. These should be books that exist and are well-known. Include a mix of recent and classic titles.
+
+Format your response EXACTLY as:
+TITLE: [exact book title]
+AUTHOR: [author name]
+REASON: [1-2 sentence reason]
+
+TITLE: [exact book title]
+AUTHOR: [author name]
+REASON: [1-2 sentence reason]
+
+TITLE: [exact book title]
+AUTHOR: [author name]
+REASON: [1-2 sentence reason]`;
+
+  try {
+    const response = await callGemini(prompt);
+    const recommendations = [];
+    const lines = response.split('\n');
+    let current = {};
+
+    for (const line of lines) {
+      if (line.startsWith('TITLE:')) {
+        if (current.title && current.reason) {
+          recommendations.push(current);
+        }
+        current = { title: line.replace('TITLE:', '').trim() };
+      } else if (line.startsWith('AUTHOR:')) {
+        current.author = line.replace('AUTHOR:', '').trim();
+      } else if (line.startsWith('REASON:')) {
+        current.reason = line.replace('REASON:', '').trim();
+      }
+    }
+
+    if (current.title && current.reason) {
+      recommendations.push(current);
+    }
+
+    return recommendations;
+  } catch (error) {
+    console.error('Error getting general recommendations:', error);
+    throw error;
+  }
+}

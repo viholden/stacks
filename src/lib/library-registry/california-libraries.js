@@ -2274,7 +2274,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Torrance',
     website: 'https://www.torranceca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://torrance.polarislibrary.com/polaris/search/searchresults.aspx?term={QUERY}',
+    customSearchPattern: 'https://torrance.polarislibrary.com/polaris/search/searchresults.aspx?ctx=1.1033.0.0.1&type=Keyword&term={QUERY}&by=KW&sort=RELEVANCE&limit=TOM=*&query=&page=0&searchid=1',
     branches: [
       {
         id: 'torrance-katy-geissert',
@@ -2366,7 +2366,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Alhambra',
     website: 'https://www.alhambralibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://alhambra.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://catalog.alhambralibrary.org/catalog/',  // session-based, no auto-search
     branches: [
       {
         id: 'alhambra-main',
@@ -2391,7 +2391,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Arcadia',
     website: 'https://www.arcadiaca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://arcadia.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://discovery.arcadialibrary.org/Union/Search?view=list&showCovers=on&lookfor={QUERY}&searchIndex=Keyword&searchSource=local',
     branches: [
       {
         id: 'arcadia-main',
@@ -2441,7 +2441,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Beverly Hills',
     website: 'https://www.beverlyhills.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://bhpl.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}',
+    customSearchPattern: 'https://beverlyhills.bibliocommons.com/v2/search?query={QUERY}&searchType=smart',
     branches: [
       {
         id: 'beverlyhills-main',
@@ -2466,7 +2466,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Cerritos',
     website: 'https://www.cerritoslibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://cerritos.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://catalog.cerritos.gov/search/?searchtype=X&SORT=D&searcharg={QUERY}',
     branches: [
       {
         id: 'cerritos-main',
@@ -2516,7 +2516,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Downey',
     website: 'https://www.downeyca.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://downey.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://dcl.polarislibrary.com/polaris/search/searchresults.aspx?ctx=3.1033.0.0.3&type=Keyword&term={QUERY}&by=KW&sort=MP&limit=TOM=*&query=&page=0&searchid=1',
     branches: [
       {
         id: 'downey-main',
@@ -2541,7 +2541,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'El Segundo',
     website: 'https://www.elsegundo.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://elsegundo.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://elseg.na4.iiivega.com/search?query={QUERY}&searchType=everything&pageSize=10',
     branches: [
       {
         id: 'elsegundo-main',
@@ -2591,7 +2591,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Inglewood',
     website: 'https://www.cityofinglewood.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://inglewood.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://inglewood.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'inglewood-main',
@@ -2616,7 +2616,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Monterey Park',
     website: 'https://www.montereypark.ca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://montereypark.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://library.montereypark.ca.gov/catalog/',  // session-based, no auto-search
     branches: [
       {
         id: 'montereypark-main',
@@ -2709,14 +2709,14 @@ export const CALIFORNIA_LIBRARIES = [
     ],
   },
   
-  // San Marino Public Library
+  // San Marino Public Library (Crowell Public Library - Biblionix)
   {
     id: 'sanmarino',
     name: 'San Marino Public Library',
     shortName: 'San Marino',
     website: 'https://www.ci.san-marino.ca.us/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://sanmarino.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://crowell.biblionix.com/catalog/',  // session-based Biblionix
     branches: [
       {
         id: 'sanmarino-main',
@@ -2734,14 +2734,14 @@ export const CALIFORNIA_LIBRARIES = [
     ],
   },
   
-  // Sierra Madre Public Library
+  // Sierra Madre Public Library (Biblionix)
   {
     id: 'sierramadre',
     name: 'Sierra Madre Public Library',
     shortName: 'Sierra Madre',
     website: 'https://www.cityofsierramadre.com/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://sierramadre.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://sierramadre.biblionix.com/catalog/',  // session-based Biblionix
     branches: [
       {
         id: 'sierramadre-main',
@@ -2766,7 +2766,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Signal Hill',
     website: 'https://www.cityofsignalhill.org/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://signalhill.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://signalhill.biblionix.com/catalog/',
     branches: [
       {
         id: 'signalhill-main',
@@ -2784,14 +2784,14 @@ export const CALIFORNIA_LIBRARIES = [
     ],
   },
   
-  // South Pasadena Public Library
+  // South Pasadena Public Library (Sirsi)
   {
     id: 'southpasadena',
     name: 'South Pasadena Public Library',
     shortName: 'South Pasadena',
     website: 'https://www.southpasadenaca.gov/library',
     adapterType: 'generic',
-    customSearchPattern: 'https://southpasadena.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://spas.ent.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'southpasadena-main',
@@ -2809,14 +2809,14 @@ export const CALIFORNIA_LIBRARIES = [
     ],
   },
   
-  // Whittier Public Library
+  // Whittier Public Library (Sirsi)
   {
     id: 'whittier',
     name: 'Whittier Public Library',
     shortName: 'Whittier',
     website: 'https://www.whittierlibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://whittier.bibliocommons.com/v2/search?query={QUERY}',
+    customSearchPattern: 'https://wpca.sirsi.net/client/en_US/default/search/results?qu={QUERY}&te=',
     branches: [
       {
         id: 'whittier-main',
@@ -2892,7 +2892,7 @@ export const CALIFORNIA_LIBRARIES = [
     shortName: 'Altadena',
     website: 'https://www.altadenalibrary.org',
     adapterType: 'generic',
-    customSearchPattern: 'https://catalog.altadenalibrary.org/search~S1?searchtype=X&searcharg={QUERY}',
+    customSearchPattern: 'https://catalog.altadenalibrary.org/cgi-bin/koha/opac-search.pl?idx=&q={QUERY}&weight_search=1',
     branches: [
       {
         id: 'altadena-main',

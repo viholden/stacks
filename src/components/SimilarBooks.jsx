@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getSimilarBooks } from '../services/gemini';
+import BookCover from './BookCover';
 import './SimilarBooks.css';
 
 export default function SimilarBooks({ book }) {
@@ -75,9 +76,11 @@ export default function SimilarBooks({ book }) {
                 className="similar-book-card"
               >
                 {authorBook.cover_id ? (
-                  <img
-                    src={`https://covers.openlibrary.org/b/id/${authorBook.cover_id}-M.jpg`}
-                    alt={authorBook.title}
+                  <BookCover
+                    coverId={authorBook.cover_id}
+                    title={authorBook.title}
+                    authors={authorBook.authors}
+                    size="M"
                     className="similar-book-cover"
                   />
                 ) : (

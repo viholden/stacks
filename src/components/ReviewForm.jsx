@@ -26,11 +26,6 @@ export default function ReviewForm({
       return
     }
 
-    if (reviewText.trim().length < 10) {
-      setError('Review must be at least 10 characters')
-      return
-    }
-
     try {
       setLoading(true)
       setError('')
@@ -134,17 +129,14 @@ export default function ReviewForm({
           </div>
 
           <div className="form-group">
-            <label htmlFor="reviewText">Your Review *</label>
+            <label htmlFor="reviewText">Your Review (optional)</label>
             <textarea
               id="reviewText"
               value={reviewText}
               onChange={e => setReviewText(e.target.value)}
               placeholder="Share your thoughts about this book..."
               rows={6}
-              maxLength={2000}
-              required
             />
-            <small>{reviewText.length} / 2000 characters</small>
           </div>
 
           <div className="form-actions">

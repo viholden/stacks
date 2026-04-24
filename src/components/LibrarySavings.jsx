@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { collection, query, getDocs, where } from 'firebase/firestore'
 import { db } from '../firebase/config'
+import { getBookPrice } from '../services/bookPricing'
 import '../styles/LibrarySavings.css'
 
 function LibrarySavings({ userId }) {
@@ -26,20 +27,25 @@ function LibrarySavings({ userId }) {
       let totalBorrowed = 0
       let totalSavings = 0
       
+      const borrowedBooks = []
       for (const bookDoc of booksSnapshot.docs) {
         const bookData = bookDoc.data()
-        
-        // Only count books borrowed from library
         if (bookData.borrowedFromLibrary === true) {
           totalBorrowed++
-          
-          // Estimate book price based on type
-          // Since we don't have exact prices, we'll use industry averages:
-          // Paperback: ~$15, Hardcover: ~$25, eBook: ~$10
-          // We'll use a conservative average of $18 per book
-          const estimatedPrice = 18
-          totalSavings += estimatedPrice
+          borrowedBooks.push(bookData)
         }
+      }
+      
+      // Look up real prices in parallel (batched)
+      const BATCH = 5
+      for (let i = 0; i < borrowedBooks.length; i += BATCH) {
+        const batch = borrowedBooks.slice(i, i + BATCH)
+        const prices = await Promise.all(
+          batch.map(b => getBookPrice(b.title, b.authors?.[0], null, b.bookId))
+        )
+        prices.forEach(price => {
+          totalSavings += price // getBookPrice always returns a value now
+        })
       }
       
       setSavings({
@@ -90,9 +96,6 @@ function LibrarySavings({ userId }) {
           <div className="stat-label">Estimated Saved</div>
         </div>
       </div>
-      <p className="savings-note">
-        Based on an average book price of $18. Keep borrowing to increase your savings!
-      </p>
     </div>
   )
 }

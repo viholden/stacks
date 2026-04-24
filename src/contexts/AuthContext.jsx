@@ -9,7 +9,7 @@ import {
   updateProfile,
   updateEmail
 } from 'firebase/auth'
-import { doc, setDoc, getDoc, serverTimestamp, deleteDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc, serverTimestamp, deleteDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
 import { auth, db } from '../firebase/config'
 
 const AuthContext = createContext({})
@@ -63,13 +63,10 @@ export function AuthProvider({ children }) {
         displayName: displayName,
         bio: '',
         photoURL: user.photoURL || '',
-        profileCompleted: false,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp()
-      })
-
-      // Reserve username
-      await setDoc(doc(db, 'usernames', username.toLowerCase()), {
+        profilePictureUrl: '',
+        isPrivate: false,
+        followers: [],
+        following: [],
         userId: user.uid,
         createdAt: serverTimestamp()
       })
@@ -119,6 +116,10 @@ export function AuthProvider({ children }) {
           displayName: user.displayName || finalUsername,
           bio: '',
           photoURL: user.photoURL || '',
+          profilePictureUrl: '',
+          isPrivate: false,
+          followers: [],
+          following: [],
           profileCompleted: false,
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()
@@ -209,7 +210,124 @@ export function AuthProvider({ children }) {
         setUserProfile(userDoc.data())
       }
     } catch (error) {
-      console.error('Error loading profile:', error)
+      console.error('Load profile error:', error)
+    }
+  }
+
+  // Upload profile picture — stored as compressed base64 in Firestore (no Storage needed)
+  async function uploadProfilePicture(file) {
+    if (!currentUser) throw new Error('No user logged in')
+
+    try {
+      // Resize & compress to ~200x200 JPEG via canvas
+      const dataUrl = await resizeImageToDataUrl(file, 200, 200, 0.75)
+
+      // Store directly on the user doc
+      await updateDoc(doc(db, 'users', currentUser.uid), {
+        profilePictureUrl: dataUrl,
+        updatedAt: serverTimestamp()
+      })
+
+      await updateProfile(currentUser, { photoURL: dataUrl })
+      setUserProfile(prev => prev ? { ...prev, profilePictureUrl: dataUrl } : prev)
+
+      return dataUrl
+    } catch (error) {
+      console.error('Profile picture upload error:', error)
+      throw error
+    }
+  }
+
+  // Helper: resize image file to a data URL using canvas
+  function resizeImageToDataUrl(file, maxW, maxH, quality = 0.8) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const img = new Image()
+        img.onload = () => {
+          const scale = Math.min(maxW / img.width, maxH / img.height, 1)
+          const w = Math.round(img.width * scale)
+          const h = Math.round(img.height * scale)
+          const canvas = document.createElement('canvas')
+          canvas.width = w
+          canvas.height = h
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+          resolve(canvas.toDataURL('image/jpeg', quality))
+        }
+        img.onerror = reject
+        img.src = e.target.result
+      }
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+  }
+
+  // Follow a user
+  async function followUser(targetUserId) {
+    if (!currentUser) throw new Error('No user logged in')
+    if (targetUserId === currentUser.uid) throw new Error('Cannot follow yourself')
+
+    try {
+      // Add to current user's following list
+      await updateDoc(doc(db, 'users', currentUser.uid), {
+        following: arrayUnion(targetUserId),
+        updatedAt: serverTimestamp()
+      })
+
+      // Add to target user's followers list
+      await updateDoc(doc(db, 'users', targetUserId), {
+        followers: arrayUnion(currentUser.uid),
+        updatedAt: serverTimestamp()
+      })
+
+      // Reload profile
+      await loadUserProfile(currentUser.uid)
+    } catch (error) {
+      console.error('Follow error:', error)
+      throw error
+    }
+  }
+
+  // Unfollow a user
+  async function unfollowUser(targetUserId) {
+    if (!currentUser) throw new Error('No user logged in')
+
+    try {
+      // Remove from current user's following list
+      await updateDoc(doc(db, 'users', currentUser.uid), {
+        following: arrayRemove(targetUserId),
+        updatedAt: serverTimestamp()
+      })
+
+      // Remove from target user's followers list
+      await updateDoc(doc(db, 'users', targetUserId), {
+        followers: arrayRemove(currentUser.uid),
+        updatedAt: serverTimestamp()
+      })
+
+      // Reload profile
+      await loadUserProfile(currentUser.uid)
+    } catch (error) {
+      console.error('Unfollow error:', error)
+      throw error
+    }
+  }
+
+  // Update privacy settings
+  async function updatePrivacySettings(isPrivate) {
+    if (!currentUser) throw new Error('No user logged in')
+
+    try {
+      await updateDoc(doc(db, 'users', currentUser.uid), {
+        isPrivate: isPrivate,
+        updatedAt: serverTimestamp()
+      })
+
+      // Reload profile
+      await loadUserProfile(currentUser.uid)
+    } catch (error) {
+      console.error('Privacy update error:', error)
+      throw error
     }
   }
 
@@ -234,7 +352,11 @@ export function AuthProvider({ children }) {
     login,
     loginWithGoogle,
     logout,
-    updateUserProfile
+    updateUserProfile,
+    uploadProfilePicture,
+    followUser,
+    unfollowUser,
+    updatePrivacySettings
   }
 
   return (

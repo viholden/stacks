@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { openLibrary } from '../../lib/adapters/openlibrary'
 import { 
   findNearbyLibraries, 
-  getLibrarySearchUrl 
+  getLibrarySearchUrl,
+  libraryCanAutoSearch,
 } from '../../lib/library-registry/finder'
 import { 
   geocodeLocation, 
@@ -10,6 +11,9 @@ import {
   reverseGeocode 
 } from '../../lib/library-registry/geocoding'
 import './Discover.css'
+
+// Simple in-memory cache for search results
+const searchCache = new Map()
 
 export default function Discover() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -22,27 +26,55 @@ export default function Discover() {
   const [locationInput, setLocationInput] = useState('')
   const [nearbyLibraries, setNearbyLibraries] = useState([])
   const [isLoadingLocation, setIsLoadingLocation] = useState(false)
+  const [radiusMiles, setRadiusMiles] = useState(20)
+  
+  // Filter states
+  const [availableNow, setAvailableNow] = useState(false)
+  const [formatType, setFormatType] = useState('')
+  
+  const searchAbortRef = useRef(null)
 
   const handleSearch = async (e) => {
     e.preventDefault()
     if (!searchQuery.trim()) return
 
-    console.log('Starting search for:', searchQuery)
+    // Cancel any in-flight search
+    if (searchAbortRef.current) {
+      searchAbortRef.current.abort()
+    }
+    searchAbortRef.current = new AbortController()
+
+    const cacheKey = searchQuery.trim().toLowerCase()
+    
+    // Check cache first
+    if (searchCache.has(cacheKey)) {
+      const cached = searchCache.get(cacheKey)
+      setBooks(cached)
+      setSearchError(cached.length === 0 ? 'No books found. Try a different search term.' : null)
+      setShowLibraryFinder(false)
+      return
+    }
+
     setIsSearching(true)
     setSearchError(null)
     setShowLibraryFinder(false)
     
     try {
-      const results = await openLibrary.search(searchQuery, 20)
-      console.log('Search results:', results)
+      const results = await openLibrary.search(searchQuery, 10)
+      
+      // Cache results
+      searchCache.set(cacheKey, results)
+      
       setBooks(results)
       
       if (results.length === 0) {
         setSearchError('No books found. Try a different search term.')
       }
     } catch (error) {
-      console.error('Search error:', error)
-      setSearchError(error instanceof Error ? error.message : 'Failed to search. Please try again.')
+      if (error.name !== 'AbortError') {
+        console.error('Search error:', error)
+        setSearchError(error instanceof Error ? error.message : 'Failed to search. Please try again.')
+      }
     } finally {
       setIsSearching(false)
     }
@@ -62,12 +94,12 @@ export default function Discover() {
       const location = await reverseGeocode(coords)
       setLocationInput(location.formattedAddress || `${location.city}, ${location.state}`)
       
-      const nearby = findNearbyLibraries(coords, 50)
+      const nearby = findNearbyLibraries(coords, radiusMiles || 9999)
       console.log('Nearby libraries found:', nearby.length)
       setNearbyLibraries(nearby)
       
       if (nearby.length === 0) {
-        alert('No libraries found within 50 miles of your location. We cover all of California.')
+        alert(`No libraries found within ${radiusMiles ? radiusMiles + ' miles' : 'any distance'} of your location.`)
       }
     } catch (error) {
       console.error('Location error:', error)
@@ -86,12 +118,12 @@ export default function Discover() {
       const coords = await geocodeLocation(locationInput)
       console.log('Geocoded location:', coords)
       
-      const nearby = findNearbyLibraries(coords, 50)
+      const nearby = findNearbyLibraries(coords, radiusMiles || 9999)
       console.log('Nearby libraries found:', nearby.length)
       setNearbyLibraries(nearby)
       
       if (nearby.length === 0) {
-        alert('No libraries found within 50 miles. We cover all of California - try a different CA city!')
+        alert(`No libraries found within ${radiusMiles ? radiusMiles + ' miles' : 'any distance'}. We cover all of California - try a different CA city!`)
       }
     } catch (error) {
       console.error('Geocoding error:', error)
@@ -103,7 +135,12 @@ export default function Discover() {
 
   const getDirectSearchUrl = (district) => {
     if (!selectedBook) return ''
-    return getLibrarySearchUrl(district, selectedBook.title, selectedBook.isbn || selectedBook.isbn13)
+    return getLibrarySearchUrl(
+      district, 
+      selectedBook.title, 
+      selectedBook.isbn || selectedBook.isbn13,
+      { availableNow, formatType }
+    )
   }
 
   return (
@@ -218,45 +255,107 @@ export default function Discover() {
                 {isLoadingLocation ? 'Searching...' : 'Search'}
               </button>
             </div>
-            <button
-              type="button"
-              onClick={handleUseCurrentLocation}
-              disabled={isLoadingLocation}
-              className="current-location-button"
-            >
-              📍 Use My Current Location
-            </button>
+            <div className="location-options-row">
+              <button
+                type="button"
+                onClick={handleUseCurrentLocation}
+                disabled={isLoadingLocation}
+                className="current-location-button"
+              >
+                📍 Use My Current Location
+              </button>
+              <div className="radius-select-group">
+                <label htmlFor="radius-miles">Within:</label>
+                <select
+                  id="radius-miles"
+                  value={radiusMiles || ''}
+                  onChange={(e) => setRadiusMiles(e.target.value ? Number(e.target.value) : null)}
+                  className="radius-select"
+                >
+                  <option value="5">5 miles</option>
+                  <option value="10">10 miles</option>
+                  <option value="20">20 miles</option>
+                  <option value="35">35 miles</option>
+                  <option value="50">50 miles</option>
+                  <option value="">Any distance</option>
+                </select>
+              </div>
+            </div>
           </form>
+
+          {/* Filters */}
+          <div className="library-filters">
+            <h4>Filter Results</h4>
+            <div className="filters-row">
+              <label className="filter-checkbox">
+                <input
+                  type="checkbox"
+                  checked={availableNow}
+                  onChange={(e) => setAvailableNow(e.target.checked)}
+                />
+                <span>Available Now</span>
+              </label>
+              
+              <div className="filter-select">
+                <label htmlFor="format-type">Format Type:</label>
+                <select
+                  id="format-type"
+                  value={formatType}
+                  onChange={(e) => setFormatType(e.target.value)}
+                >
+                  <option value="">All Formats</option>
+                  <option value="book">Book</option>
+                  <option value="audiobook">Audiobook</option>
+                  <option value="ebook">eBook</option>
+                  <option value="eaudiobook">eAudiobook</option>
+                  <option value="cd">CD</option>
+                </select>
+              </div>
+            </div>
+            {(availableNow || formatType) && (
+              <p className="filter-note">
+                ℹ️ Filters will be applied when you search each library
+              </p>
+            )}
+          </div>
 
           {/* Nearby Libraries Results */}
           {nearbyLibraries.length > 0 && (
             <div className="libraries-list">
               <h3>Libraries Near You</h3>
               <div className="libraries-grid">
-                {nearbyLibraries.map(({ district, closestBranch, distance }) => (
-                  <a
-                    key={district.id}
-                    href={getDirectSearchUrl(district)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="library-item"
-                  >
-                    <div className="library-content">
-                      <div className="library-details">
-                        <h4>{closestBranch.name} ({district.shortName})</h4>
-                        <p className="library-address">
-                          {closestBranch.location.address}, {closestBranch.location.city}
-                        </p>
-                        <p className="library-distance">
-                          {distance.toFixed(1)} miles away
-                        </p>
+                {nearbyLibraries.map(({ district, closestBranch, distance }) => {
+                  const canSearch = libraryCanAutoSearch(district)
+                  return (
+                    <a
+                      key={district.id}
+                      href={getDirectSearchUrl(district)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`library-item ${canSearch ? '' : 'library-item--browse'}`}
+                    >
+                      <div className="library-content">
+                        <div className="library-details">
+                          <h4>{closestBranch.name} ({district.shortName})</h4>
+                          <p className="library-address">
+                            {closestBranch.location.address}, {closestBranch.location.city}
+                          </p>
+                          <p className="library-distance">
+                            {distance.toFixed(1)} miles away
+                          </p>
+                          {canSearch ? (
+                            <span className="library-badge library-badge--direct">🔍 Direct search</span>
+                          ) : (
+                            <span className="library-badge library-badge--browse">📋 Browse catalog manually</span>
+                          )}
+                        </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </a>
-                ))}
+                    </a>
+                  )
+                })}
               </div>
             </div>
           )}

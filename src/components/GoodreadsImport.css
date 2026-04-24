@@ -1,0 +1,85 @@
+/* Goodreads Import */
+.goodreads-import {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 2px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.goodreads-import h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #2d3748;
+}
+
+.import-instructions {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.import-instructions a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.import-error {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.import-upload-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.import-progress {
+  text-align: center;
+}
+
+.import-progress p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--deep-green));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.import-results {
+  text-align: center;
+}
+
+.import-results h4 {
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.import-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.import-results li {
+  padding: 0.25rem 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}

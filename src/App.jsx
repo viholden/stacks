@@ -13,6 +13,7 @@ import Discover from './pages/Discover'
 import Shelves from './pages/Shelves/Shelves'
 import BookDetail from './pages/BookDetail/BookDetail'
 import UserProfile from './pages/UserProfile/UserProfile'
+import Events from './pages/Events/Events'
 
 function App() {
   return (
@@ -24,10 +25,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/discover" element={<Discover />} />
+              <Route path="/events" element={<Events />} />
               <Route path="/results" element={<Results />} />
               <Route path="/item/:id" element={<Item />} />
               <Route path="/library/:id/category/:category" element={<CategoryItems />} />
               <Route path="/library/:id" element={<Library />} />
+              {/* Libraries page archived - keeping route for backwards compatibility */}
               <Route path="/libraries" element={<Libraries />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/shelves" element={<Shelves />} />

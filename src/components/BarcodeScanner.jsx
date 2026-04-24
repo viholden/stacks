@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
+import { BarcodeDetector as BarcodeDetectorPolyfill } from 'barcode-detector'
 import './BarcodeScanner.css'
+
+// Use native BarcodeDetector if available, otherwise use polyfill
+const BarcodeDetectorImpl = window.BarcodeDetector || BarcodeDetectorPolyfill
 
 export default function BarcodeScanner({ isOpen, onClose, onBarcodeDetected }) {
   const videoRef = useRef(null)
@@ -30,15 +34,15 @@ export default function BarcodeScanner({ isOpen, onClose, onBarcodeDetected }) {
         streamRef.current = stream
         setHasPermission(true)
         
-        // Start barcode detection
-        if ('BarcodeDetector' in window) {
-          const barcodeDetector = new window.BarcodeDetector({
+        // Start barcode detection using polyfill (works on all browsers)
+        try {
+          const barcodeDetector = new BarcodeDetectorImpl({
             formats: ['ean_13', 'ean_8', 'code_128', 'code_39']
           })
           detectBarcode(barcodeDetector)
-        } else {
-          // BarcodeDetector not supported (e.g., Safari)
-          setError('Barcode scanning is not supported in this browser. Please enter the ISBN manually below.')
+        } catch (detectorErr) {
+          console.error('BarcodeDetector init error:', detectorErr)
+          setError('Barcode scanning failed to initialize. Please enter the ISBN manually below.')
         }
       }
     } catch (err) {
@@ -120,18 +124,17 @@ export default function BarcodeScanner({ isOpen, onClose, onBarcodeDetected }) {
             </div>
           )}
 
-          {hasPermission && (
-            <div className="video-container">
-              <video ref={videoRef} autoPlay playsInline className="scanner-video" />
-              <canvas ref={canvasRef} style={{ display: 'none' }} />
-              <div className="scanner-frame">
-                <div className="scanner-line"></div>
-              </div>
-              <p className="scanner-instructions">
-                Point your camera at the book's barcode
-              </p>
+          {/* Always render video so ref is available when startCamera runs */}
+          <div className="video-container" style={{ display: hasPermission ? 'block' : 'none' }}>
+            <video ref={videoRef} autoPlay playsInline muted className="scanner-video" />
+            <canvas ref={canvasRef} style={{ display: 'none' }} />
+            <div className="scanner-frame">
+              <div className="scanner-line"></div>
             </div>
-          )}
+            <p className="scanner-instructions">
+              Point your camera at the book's barcode
+            </p>
+          </div>
 
           <div className="manual-isbn-section">
             <p className="manual-isbn-label">Or enter ISBN manually:</p>

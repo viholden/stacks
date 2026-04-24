@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { db } from '../../firebase/config'
-import { doc, getDoc, collection, query, where, getDocs, orderBy, addDoc, serverTimestamp, deleteDoc } from 'firebase/firestore'
+import { doc, getDoc, collection, query, where, getDocs, orderBy, addDoc, serverTimestamp, deleteDoc, updateDoc, setDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
 import StarRating from '../../components/StarRating'
 import ReviewForm from '../../components/ReviewForm'
 import AuthModal from '../../components/AuthModal'
 import SimilarBooks from '../../components/SimilarBooks'
+import BookCover from '../../components/BookCover'
 import './BookDetail.css'
 
 export default function BookDetail() {
@@ -27,7 +28,14 @@ export default function BookDetail() {
   const [bookShelfIds, setBookShelfIds] = useState([])
   const [showNewShelfForm, setShowNewShelfForm] = useState(false)
   const [newShelfName, setNewShelfName] = useState('')
+  const [editingReview, setEditingReview] = useState(null)
+  const [showAllReviews, setShowAllReviews] = useState(false)
+  const [bookSearchQuery, setBookSearchQuery] = useState('')
+  const [bookSearchResults, setBookSearchResults] = useState([])
+  const [isBookSearching, setIsBookSearching] = useState(false)
+  const [showBookSearchResults, setShowBookSearchResults] = useState(false)
   const { currentUser, userProfile } = useAuth()
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadBookDetails()
@@ -38,6 +46,38 @@ export default function BookDetail() {
       loadUserShelvesAndBookStatus()
     }
   }, [currentUser, book])
+
+  // Debounced book search
+  useEffect(() => {
+    if (bookSearchQuery.length < 3) {
+      setBookSearchResults([])
+      setShowBookSearchResults(false)
+      return
+    }
+    const timer = setTimeout(async () => {
+      setIsBookSearching(true)
+      try {
+        const res = await fetch(
+          `https://openlibrary.org/search.json?q=${encodeURIComponent(bookSearchQuery)}&limit=5`
+        )
+        const data = await res.json()
+        const results = (data.docs || []).map(d => ({
+          key: d.key,
+          title: d.title,
+          authors: d.author_name || [],
+          cover_id: d.cover_i,
+          first_publish_year: d.first_publish_year
+        }))
+        setBookSearchResults(results)
+        setShowBookSearchResults(true)
+      } catch (e) {
+        console.error('Book search error:', e)
+      } finally {
+        setIsBookSearching(false)
+      }
+    }, 400)
+    return () => clearTimeout(timer)
+  }, [bookSearchQuery])
 
   async function loadUserShelvesAndBookStatus() {
     if (!currentUser || !book) return
@@ -132,11 +172,23 @@ export default function BookDetail() {
       const reviewsRef = collection(db, 'reviews')
       const reviewsQuery = query(
         reviewsRef,
-        where('bookId', '==', bookId),
-        orderBy('createdAt', 'desc')
+        where('bookId', '==', bookId)
       )
       const reviewsSnapshot = await getDocs(reviewsQuery)
-      setReviews(reviewsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+      const rawReviews = reviewsSnapshot.docs.map(d => ({ id: d.id, ...d.data() }))
+
+      // Fetch profile pictures for each unique reviewer
+      const uniqueUserIds = [...new Set(rawReviews.map(r => r.userId).filter(Boolean))]
+      const profileMap = {}
+      await Promise.all(
+        uniqueUserIds.map(async uid => {
+          try {
+            const userSnap = await getDoc(doc(db, 'users', uid))
+            if (userSnap.exists()) profileMap[uid] = userSnap.data().profilePictureUrl || null
+          } catch { /* ignore */ }
+        })
+      )
+      setReviews(rawReviews.map(r => ({ ...r, profilePictureUrl: profileMap[r.userId] || null })))
 
     } catch (error) {
       console.error('Error loading book details:', error)
@@ -214,8 +266,14 @@ export default function BookDetail() {
         timestamps.borrowedFromLibrary = borrowedFromLibrary
       }
 
-      // Add book to user's shelf
+      // Add book to user's shelf (check for duplicate first)
       const shelfBooksRef = collection(db, 'users', currentUser.uid, 'shelves', shelfId, 'books')
+      const dupCheck = await getDocs(query(shelfBooksRef, where('bookId', '==', book.id)))
+      if (!dupCheck.empty) {
+        alert(`"${book.title}" is already on this shelf!`)
+        await loadUserShelvesAndBookStatus()
+        return
+      }
       await addDoc(shelfBooksRef, {
         bookId: book.id,
         title: book.title,
@@ -239,7 +297,56 @@ export default function BookDetail() {
 
   function handleReviewSuccess() {
     setShowReviewForm(false)
+    setEditingReview(null)
     loadBookDetails() // Reload to show new review
+  }
+
+  async function handleLikeReview(reviewId) {
+    if (!currentUser) {
+      setShowAuthModal(true)
+      return
+    }
+    try {
+      const reviewRef = doc(db, 'reviews', reviewId)
+      const reviewDoc = await getDoc(reviewRef)
+      if (!reviewDoc.exists()) return
+      
+      const data = reviewDoc.data()
+      const likedBy = data.likedBy || []
+      
+      if (likedBy.includes(currentUser.uid)) {
+        // Unlike
+        await updateDoc(reviewRef, {
+          likedBy: arrayRemove(currentUser.uid),
+          likesCount: Math.max((data.likesCount || 0) - 1, 0)
+        })
+      } else {
+        // Like
+        await updateDoc(reviewRef, {
+          likedBy: arrayUnion(currentUser.uid),
+          likesCount: (data.likesCount || 0) + 1
+        })
+      }
+      loadBookDetails()
+    } catch (error) {
+      console.error('Error liking review:', error)
+    }
+  }
+
+  async function handleDeleteReview(reviewId) {
+    if (!window.confirm('Are you sure you want to delete this review?')) return
+    try {
+      await deleteDoc(doc(db, 'reviews', reviewId))
+      loadBookDetails()
+    } catch (error) {
+      console.error('Error deleting review:', error)
+      alert('Failed to delete review.')
+    }
+  }
+
+  function handleEditReview(review) {
+    setEditingReview(review)
+    setShowReviewForm(true)
   }
 
   async function handleCreateNewShelf() {
@@ -324,21 +431,64 @@ export default function BookDetail() {
 
   return (
     <div className="book-detail-page">
+      {/* Search bar */}
+      <div className="book-detail-search-bar">
+        <div className="book-search-wrapper">
+          <svg className="search-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"/>
+          </svg>
+          <input
+            type="text"
+            placeholder="Search for another book..."
+            value={bookSearchQuery}
+            onChange={(e) => setBookSearchQuery(e.target.value)}
+            onFocus={() => bookSearchQuery.length >= 3 && setShowBookSearchResults(true)}
+            onBlur={() => setTimeout(() => setShowBookSearchResults(false), 200)}
+            className="book-search-input"
+          />
+          {isBookSearching && <span className="book-search-loading">Searching...</span>}
+        </div>
+        {showBookSearchResults && bookSearchResults.length > 0 && (
+          <div className="book-search-dropdown">
+            {bookSearchResults.map(result => (
+              <Link
+                key={result.key}
+                to={`/book/${result.key.replace('/works/', '')}`}
+                className="book-search-result"
+                onClick={() => { setBookSearchQuery(''); setShowBookSearchResults(false) }}
+              >
+                {result.cover_id ? (
+                  <BookCover
+                    coverId={result.cover_id}
+                    title={result.title}
+                    authors={result.authors}
+                    size="S"
+                    className="book-search-cover"
+                  />
+                ) : (
+                  <div className="book-search-cover-placeholder">{result.title.charAt(0)}</div>
+                )}
+                <div>
+                  <div className="book-search-title">{result.title}</div>
+                  <div className="book-search-author">{result.authors.join(', ')}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="book-detail-container">
         {/* Book Header */}
         <div className="book-header">
           <div className="book-cover-section">
-            {book.covers && book.covers.length > 0 ? (
-              <img
-                src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
-                alt={book.title}
-                className="book-detail-cover"
-              />
-            ) : (
-              <div className="book-detail-cover-placeholder">
-                <span>{book.title}</span>
-              </div>
-            )}
+            <BookCover
+              coverId={book.covers?.[0]}
+              title={book.title}
+              authors={book.authors}
+              size="L"
+              className="book-detail-cover"
+            />
           </div>
 
           <div className="book-info-section">
@@ -446,7 +596,7 @@ export default function BookDetail() {
           {currentUser && (
             <button 
               className="btn btn-primary write-review-btn"
-              onClick={() => setShowReviewForm(true)}
+              onClick={() => { setEditingReview(null); setShowReviewForm(true) }}
             >
               Write a Review
             </button>
@@ -454,20 +604,93 @@ export default function BookDetail() {
 
           {reviews.length > 0 ? (
             <div className="reviews-list">
-              {reviews.map(review => (
-                <div key={review.id} className="review-card">
-                  <div className="review-header">
-                    <Link to={`/user/${review.username}`} className="reviewer-name">
-                      {review.username}
-                    </Link>
-                    <StarRating rating={review.rating} size={18} />
-                  </div>
-                  <p className="review-text">{review.reviewText}</p>
-                  <p className="review-date">
-                    {review.createdAt && new Date(review.createdAt.toDate()).toLocaleDateString()}
-                  </p>
-                </div>
-              ))}
+              {(() => {
+                // Sort by likes (most liked first), then by date
+                const sorted = [...reviews].sort((a, b) => {
+                  const aLikes = a.likesCount || 0
+                  const bLikes = b.likesCount || 0
+                  if (bLikes !== aLikes) return bLikes - aLikes
+                  const aTime = a.createdAt?.seconds || 0
+                  const bTime = b.createdAt?.seconds || 0
+                  return bTime - aTime
+                })
+                const displayed = showAllReviews ? sorted : sorted.slice(0, 3)
+                return (
+                  <>
+                    {displayed.map((review, index) => {
+                      const isAuthor = currentUser && review.userId === currentUser.uid
+                      const isLiked = currentUser && (review.likedBy || []).includes(currentUser.uid)
+                      return (
+                        <div key={review.id} className="review-card">
+                          <div className="review-header">
+                            <Link to={`/user/${review.username}`} className="reviewer-info">
+                              {review.profilePictureUrl ? (
+                                <img src={review.profilePictureUrl} alt={review.username} className="reviewer-avatar" />
+                              ) : (
+                                <div className="reviewer-avatar reviewer-avatar-placeholder">
+                                  {(review.username || '?').charAt(0).toUpperCase()}
+                                </div>
+                              )}
+                              <span className="reviewer-name">{review.username}</span>
+                            </Link>
+                            <StarRating rating={review.rating} size={18} />
+                          </div>
+                          <p className="review-text">{review.reviewText}</p>
+                          <div className="review-footer">
+                            <p className="review-date">
+                              {review.createdAt && new Date(review.createdAt.toDate()).toLocaleDateString()}
+                              {review.updatedAt && review.updatedAt.seconds !== review.createdAt?.seconds && ' (edited)'}
+                            </p>
+                            <div className="review-actions">
+                              <button
+                                className={`review-like-btn ${isLiked ? 'liked' : ''}`}
+                                onClick={() => handleLikeReview(review.id)}
+                                title={isLiked ? 'Unlike' : 'Like'}
+                              >
+                                {isLiked ? '❤️' : '🤍'} {review.likesCount || 0}
+                              </button>
+                              {isAuthor && (
+                                <>
+                                  <button
+                                    className="review-edit-btn"
+                                    onClick={() => handleEditReview(review)}
+                                    title="Edit review"
+                                  >
+                                    ✏️
+                                  </button>
+                                  <button
+                                    className="review-delete-btn"
+                                    onClick={() => handleDeleteReview(review.id)}
+                                    title="Delete review"
+                                  >
+                                    🗑️
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                    {!showAllReviews && sorted.length > 3 && (
+                      <button
+                        className="btn btn-secondary show-more-reviews-btn"
+                        onClick={() => setShowAllReviews(true)}
+                      >
+                        Show All Reviews ({sorted.length - 3} more)
+                      </button>
+                    )}
+                    {showAllReviews && sorted.length > 3 && (
+                      <button
+                        className="btn btn-secondary show-more-reviews-btn"
+                        onClick={() => setShowAllReviews(false)}
+                      >
+                        Show Less
+                      </button>
+                    )}
+                  </>
+                )
+              })()}
             </div>
           ) : (
             <p className="no-reviews">No reviews yet. Be the first to review this book!</p>
@@ -485,7 +708,8 @@ export default function BookDetail() {
           bookTitle={book.title}
           userId={currentUser.uid}
           username={userProfile?.username}
-          onClose={() => setShowReviewForm(false)}
+          existingReview={editingReview}
+          onClose={() => { setShowReviewForm(false); setEditingReview(null) }}
           onSuccess={handleReviewSuccess}
         />
       )}

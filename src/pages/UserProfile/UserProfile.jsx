@@ -2,14 +2,25 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { db } from '../../firebase/config'
 import { collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore'
+import { useAuth } from '../../contexts/AuthContext'
+import BookCover from '../../components/BookCover'
 import './UserProfile.css'
 
 export default function UserProfile() {
   const { username } = useParams()
+  const { currentUser, userProfile: currentUserProfile, followUser, unfollowUser } = useAuth()
   const [userProfile, setUserProfile] = useState(null)
+  const [userId, setUserId] = useState(null)
   const [shelves, setShelves] = useState([])
   const [reviews, setReviews] = useState([])
   const [loading, setLoading] = useState(true)
+  const [librarySavings, setLibrarySavings] = useState(0)
+
+  // Check if current user is following this profile
+  const isFollowing = currentUserProfile?.following?.includes(userId)
+  const isOwnProfile = currentUser?.uid === userId
+  const isPrivate = userProfile?.isPrivate || false
+  const canViewProfile = !isPrivate || isFollowing || isOwnProfile
 
   useEffect(() => {
     loadUserProfile()
@@ -30,11 +41,12 @@ export default function UserProfile() {
         return
       }
 
-      const userId = usernameSnapshot.docs[0].data().userId
+      const fetchedUserId = usernameSnapshot.docs[0].data().userId
+      setUserId(fetchedUserId)
 
       // Load user profile
       const usersRef = collection(db, 'users')
-      const userQuery = query(usersRef, where('uid', '==', userId))
+      const userQuery = query(usersRef, where('uid', '==', fetchedUserId))
       const userSnapshot = await getDocs(userQuery)
 
       if (!userSnapshot.empty) {
@@ -42,28 +54,31 @@ export default function UserProfile() {
       }
 
       // Load user's shelves (with books)
-      const shelvesRef = collection(db, 'users', userId, 'shelves')
+      const shelvesRef = collection(db, 'users', fetchedUserId, 'shelves')
       const shelvesQuery = query(shelvesRef, orderBy('order', 'asc'))
       const shelvesSnapshot = await getDocs(shelvesQuery)
 
       const shelvesData = []
+      let totalSavings = 0
+
       for (const shelfDoc of shelvesSnapshot.docs) {
         const shelfData = { id: shelfDoc.id, ...shelfDoc.data(), books: [] }
 
         // Get first 4 books from each shelf for preview
-        const booksRef = collection(db, 'users', userId, 'shelves', shelfDoc.id, 'books')
+        const booksRef = collection(db, 'users', fetchedUserId, 'shelves', shelfDoc.id, 'books')
         const booksQuery = query(booksRef, limit(4))
         const booksSnapshot = await getDocs(booksQuery)
 
-        shelfData.books = booksSnapshot.docs.map(bookDoc => ({
-          id: bookDoc.id,
-          ...bookDoc.data()
-        }))
+        shelfData.books = booksSnapshot.docs.map(bookDoc => {
+          const bookData = { id: bookDoc.id, ...bookDoc.data() }
+          return bookData
+        })
 
         shelvesData.push(shelfData)
       }
 
       setShelves(shelvesData)
+      setLibrarySavings(totalSavings)
 
       // Load user's reviews
       const reviewsRef = collection(db, 'reviews')
@@ -80,6 +95,26 @@ export default function UserProfile() {
       console.error('Error loading user profile:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleFollowToggle = async () => {
+    if (!currentUser) {
+      alert('Please sign in to follow users')
+      return
+    }
+
+    try {
+      if (isFollowing) {
+        await unfollowUser(userId)
+      } else {
+        await followUser(userId)
+      }
+      // Refresh profile to update follower count
+      await loadUserProfile()
+    } catch (error) {
+      console.error('Follow/unfollow error:', error)
+      alert('Failed to update follow status. Please try again.')
     }
   }
 
@@ -109,7 +144,9 @@ export default function UserProfile() {
         {/* Profile Header */}
         <div className="profile-header">
           <div className="profile-avatar">
-            {userProfile.photoURL ? (
+            {userProfile.profilePictureUrl ? (
+              <img src={userProfile.profilePictureUrl} alt={userProfile.displayName} />
+            ) : userProfile.photoURL ? (
               <img src={userProfile.photoURL} alt={userProfile.displayName} />
             ) : (
               <div className="avatar-placeholder">
@@ -123,61 +160,108 @@ export default function UserProfile() {
             {userProfile.bio && (
               <p className="bio">{userProfile.bio}</p>
             )}
+            
+            {/* Social Stats */}
             <div className="profile-stats">
               <div className="stat">
-                <span className="stat-number">{shelves.reduce((acc, shelf) => acc + shelf.books.length, 0)}</span>
-                <span className="stat-label">Books</span>
+                <span className="stat-number">{userProfile.followers?.length || 0}</span>
+                <span className="stat-label">Followers</span>
               </div>
               <div className="stat">
-                <span className="stat-number">{reviews.length}</span>
-                <span className="stat-label">Reviews</span>
+                <span className="stat-number">{userProfile.following?.length || 0}</span>
+                <span className="stat-label">Following</span>
               </div>
+              {canViewProfile && (
+                <>
+                  <div className="stat">
+                    <span className="stat-number">{shelves.reduce((acc, shelf) => acc + shelf.books.length, 0)}</span>
+                    <span className="stat-label">Books</span>
+                  </div>
+                  <div className="stat">
+                    <span className="stat-number">${librarySavings.toFixed(0)}</span>
+                    <span className="stat-label">Saved</span>
+                  </div>
+                </>
+              )}
             </div>
+
+            {/* Follow Button */}
+            {currentUser && !isOwnProfile && (
+              <button
+                className={`btn ${isFollowing ? 'btn-secondary' : 'btn-primary'} follow-btn`}
+                onClick={handleFollowToggle}
+              >
+                {isFollowing ? 'Following' : 'Follow'}
+              </button>
+            )}
+
+            {isOwnProfile && (
+              <Link to="/profile" className="btn btn-secondary follow-btn">
+                Edit Profile
+              </Link>
+            )}
           </div>
         </div>
 
-        {/* Shelves Section */}
-        {shelves.length > 0 && (
-          <section className="profile-shelves-section">
-            <h2>Bookshelves</h2>
-            <div className="shelves-grid">
-              {shelves.map(shelf => (
-                <div key={shelf.id} className="shelf-preview-card">
-                  <div className="shelf-preview-header">
-                    <h3>{shelf.name}</h3>
-                    <span className="shelf-count">{shelf.books.length} books</span>
-                  </div>
-                  {shelf.books.length > 0 ? (
-                    <div className="shelf-preview-covers">
-                      {shelf.books.map(book => (
-                        <Link
-                          key={book.id}
-                          to={`/book/${book.bookId}`}
-                          className="preview-cover"
-                        >
-                          {book.covers && book.covers.length > 0 ? (
-                            <img
-                              src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-M.jpg`}
-                              alt={book.title}
-                            />
-                          ) : (
-                            <div className="preview-cover-placeholder">
-                              {book.title.charAt(0)}
-                            </div>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="shelf-empty-message">No books yet</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
+        {/* Private Account Message */}
+        {!canViewProfile && (
+          <div className="private-account-message">
+            <div className="lock-icon">🔒</div>
+            <h2>This Account is Private</h2>
+            <p>Follow this account to see their shelves and reading activity.</p>
+          </div>
         )}
 
-        {/* Reviews Section */}
+        {/* Content (only if can view) */}
+        {canViewProfile && (
+          <>
+            {/* Shelves Section */}
+            {shelves.length > 0 && (
+              <section className="profile-shelves-section">
+                <h2>Bookshelves</h2>
+                <div className="shelves-grid">
+                  {shelves.map(shelf => (
+                    <div key={shelf.id} className="shelf-preview-card">
+                      <div className="shelf-preview-header">
+                        <h3>{shelf.name}</h3>
+                        <span className="shelf-count">{shelf.books.length} books</span>
+                      </div>
+                      {shelf.books.length > 0 ? (
+                        <div className="shelf-preview-covers">
+                          {shelf.books.map(book => (
+                            <Link
+                              key={book.id}
+                              to={`/book/${book.bookId}`}
+                              className="preview-cover"
+                            >
+                              <BookCover
+                                coverId={book.covers?.[0]}
+                                title={book.title}
+                                authors={book.authors}
+                                size="M"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="shelf-empty-message">No books yet</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Empty State */}
+            {shelves.length === 0 && reviews.length === 0 && (
+              <div className="empty-state">
+                <p>This user hasn't added any books or reviews yet.</p>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Reviews Section - Always visible per user requirement */}
         {reviews.length > 0 && (
           <section className="profile-reviews-section">
             <h2>Recent Reviews</h2>
@@ -200,13 +284,6 @@ export default function UserProfile() {
               ))}
             </div>
           </section>
-        )}
-
-        {/* Empty State */}
-        {shelves.length === 0 && reviews.length === 0 && (
-          <div className="empty-state">
-            <p>This user hasn't added any books or reviews yet.</p>
-          </div>
         )}
       </div>
     </div>

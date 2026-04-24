@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../firebase/config';
 import { collection, query, getDocs, where } from 'firebase/firestore';
-import { getBookRecommendations } from '../services/gemini';
+import { getBookRecommendations, getGeneralRecommendations } from '../services/gemini';
 import { Link } from 'react-router-dom';
+import BookCover from './BookCover';
 import './StackMatch.css';
 
 export default function StackMatch() {
@@ -11,6 +12,7 @@ export default function StackMatch() {
   const [step, setStep] = useState('welcome'); // welcome, questions, loading, results
   const [wantToReadBooks, setWantToReadBooks] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
+  const [recMode, setRecMode] = useState('tbr'); // 'tbr' or 'general'
   const [preferences, setPreferences] = useState({
     genre: '',
     mood: '',
@@ -55,7 +57,7 @@ export default function StackMatch() {
   }
 
   async function handleGetRecommendations() {
-    if (wantToReadBooks.length === 0) {
+    if (recMode === 'tbr' && wantToReadBooks.length === 0) {
       setError('Add some books to your Want to Read shelf first!');
       return;
     }
@@ -65,32 +67,82 @@ export default function StackMatch() {
     setStep('loading');
 
     try {
-      // Determine if user provided any preferences
-      const hasPreferences = preferences.genre || preferences.mood || preferences.trope || preferences.vibe;
+      let recs;
       
-      const recs = await getBookRecommendations(
-        wantToReadBooks,
-        hasPreferences ? preferences : null,
-        readBooks
-      );
+      if (recMode === 'general') {
+        // General recommendations - new books based on reading history
+        const hasPreferences = preferences.genre || preferences.mood || preferences.trope || preferences.vibe;
+        recs = await getGeneralRecommendations(readBooks, hasPreferences ? preferences : {});
 
-      if (recs.length === 0) {
-        throw new Error('No recommendations found. Try adjusting your preferences.');
+        if (recs.length === 0) {
+          throw new Error('No recommendations found. Try adjusting your preferences.');
+        }
+
+        // For general recs, look up each book on Open Library for real IDs and covers
+        const matchedRecs = await Promise.all(recs.map(async (rec) => {
+          try {
+            const searchQuery = `${rec.title} ${rec.author || ''}`.trim();
+            const res = await fetch(
+              `https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery)}&limit=1`
+            );
+            const data = await res.json();
+            if (data.docs && data.docs.length > 0) {
+              const found = data.docs[0];
+              return {
+                ...rec,
+                book: {
+                  bookId: found.key.replace('/works/', ''),
+                  title: found.title || rec.title,
+                  authors: found.author_name || (rec.author ? [rec.author] : []),
+                  covers: found.cover_i ? [found.cover_i] : []
+                }
+              };
+            }
+          } catch (e) {
+            console.error('Error looking up book:', rec.title, e);
+          }
+          // Fallback if lookup fails
+          return {
+            ...rec,
+            book: {
+              bookId: null,
+              title: rec.title,
+              authors: rec.author ? [rec.author] : [],
+              covers: []
+            }
+          };
+        }));
+
+        setRecommendations(matchedRecs);
+      } else {
+        // TBR recommendations - pick from Want to Read shelf
+        const hasPreferences = preferences.genre || preferences.mood || preferences.trope || preferences.vibe;
+        
+        recs = await getBookRecommendations(
+          wantToReadBooks,
+          hasPreferences ? preferences : null,
+          readBooks
+        );
+
+        if (recs.length === 0) {
+          throw new Error('No recommendations found. Try adjusting your preferences.');
+        }
+
+        // Match recommendations with actual books from Want to Read shelf
+        const matchedRecs = recs.map(rec => {
+          const book = wantToReadBooks.find(b => 
+            b.title.toLowerCase().includes(rec.title.toLowerCase()) ||
+            rec.title.toLowerCase().includes(b.title.toLowerCase())
+          );
+          return {
+            ...rec,
+            book: book || null
+          };
+        }).filter(rec => rec.book);
+
+        setRecommendations(matchedRecs);
       }
 
-      // Match recommendations with actual books from Want to Read shelf
-      const matchedRecs = recs.map(rec => {
-        const book = wantToReadBooks.find(b => 
-          b.title.toLowerCase().includes(rec.title.toLowerCase()) ||
-          rec.title.toLowerCase().includes(b.title.toLowerCase())
-        );
-        return {
-          ...rec,
-          book: book || null
-        };
-      }).filter(rec => rec.book); // Only keep matched books
-
-      setRecommendations(matchedRecs);
       setCurrentCardIndex(0);
       setStep('results');
     } catch (error) {
@@ -163,9 +215,27 @@ export default function StackMatch() {
       <div className="stack-match">
         <div className="stack-match-questions">
           <h2>📚 What are you in the mood for?</h2>
+
+          {/* TBR vs General Toggle */}
+          <div className="rec-mode-toggle">
+            <button
+              className={`toggle-btn ${recMode === 'tbr' ? 'active' : ''}`}
+              onClick={() => setRecMode('tbr')}
+            >
+              From My TBR
+            </button>
+            <button
+              className={`toggle-btn ${recMode === 'general' ? 'active' : ''}`}
+              onClick={() => setRecMode('general')}
+            >
+              Discover New Books
+            </button>
+          </div>
+
           <p className="hint">
-            Tell us what you're looking for! Be as specific or vague as you want. 
-            Leave blank to get recommendations based on your reading history.
+            {recMode === 'tbr'
+              ? "We'll pick from your Want to Read shelf. Tell us what you're in the mood for!"
+              : "We'll recommend new books you haven't seen yet based on your taste."}
           </p>
 
           {error && <div className="error-message">{error}</div>}
@@ -214,9 +284,9 @@ export default function StackMatch() {
             <button
               className="btn-primary"
               onClick={handleGetRecommendations}
-              disabled={loading || wantToReadBooks.length === 0}
+              disabled={loading || (recMode === 'tbr' && wantToReadBooks.length === 0)}
             >
-              {wantToReadBooks.length === 0 
+              {recMode === 'tbr' && wantToReadBooks.length === 0 
                 ? 'Add books to Want to Read first' 
                 : 'Get Recommendations'}
             </button>
@@ -248,30 +318,46 @@ export default function StackMatch() {
           <p className="match-counter">{currentCardIndex + 1} of {recommendations.length}</p>
 
           <div className="match-card">
-            <Link to={`/book/${book.bookId}`} className="match-card-content">
-              {book.cover ? (
-                <img 
-                  src={book.cover} 
-                  alt={book.title}
+            {book.bookId ? (
+              <Link to={`/book/${book.bookId}`} className="match-card-content">
+                <BookCover
+                  coverId={book.covers?.[0]}
+                  title={book.title}
+                  authors={book.authors}
+                  size="M"
                   className="match-cover"
                 />
-              ) : (
-                <div className="match-cover-placeholder">
-                  <span>📖</span>
+                <div className="match-info">
+                  <h3>{book.title}</h3>
+                  <p className="match-author">
+                    by {book.authors ? book.authors.join(', ') : 'Unknown Author'}
+                  </p>
+                  <div className="match-reason">
+                    <strong>Why this book:</strong>
+                    <p>{currentRec.reason}</p>
+                  </div>
                 </div>
-              )}
-
-              <div className="match-info">
-                <h3>{book.title}</h3>
-                <p className="match-author">
-                  by {book.authors ? book.authors.join(', ') : 'Unknown Author'}
-                </p>
-                <div className="match-reason">
-                  <strong>Why this book:</strong>
-                  <p>{currentRec.reason}</p>
+              </Link>
+            ) : (
+              <div className="match-card-content">
+                <BookCover
+                  title={book.title}
+                  authors={book.authors}
+                  size="M"
+                  className="match-cover"
+                />
+                <div className="match-info">
+                  <h3>{book.title}</h3>
+                  <p className="match-author">
+                    by {book.authors ? book.authors.join(', ') : 'Unknown Author'}
+                  </p>
+                  <div className="match-reason">
+                    <strong>Why this book:</strong>
+                    <p>{currentRec.reason}</p>
+                  </div>
                 </div>
               </div>
-            </Link>
+            )}
 
             <div className="match-actions">
               <button 
@@ -281,13 +367,23 @@ export default function StackMatch() {
               >
                 ✕ Pass
               </button>
-              <Link 
-                to={`/book/${book.bookId}`}
-                className="btn-like"
-                title="View Book"
-              >
-                ♥ Read This
-              </Link>
+              {book.bookId ? (
+                <Link 
+                  to={`/book/${book.bookId}`}
+                  className="btn-like"
+                  title="View Book"
+                >
+                  ♥ Read This
+                </Link>
+              ) : (
+                <button 
+                  className="btn-like"
+                  onClick={handleSkip}
+                  title="Next"
+                >
+                  ♥ Next
+                </button>
+              )}
             </div>
           </div>
 

@@ -22,10 +22,19 @@
   --secondary-hover: #B89659;
   --accent: #B87665;
   --accent-hover: #A66554;
+
+  /* Semantic aliases — used throughout components */
+  --text-primary: #2D3436;
+  --text-secondary: #8B8578;
+  --surface: #FEFDFB;
+  --surface-raised: #F5F1E8;
+  --bg-secondary: #F5F1E8;
+  --border-color: rgba(139, 133, 120, 0.22);
+  --border: 1px solid rgba(139, 133, 120, 0.22);
   
   /* Typography */
-  --font-serif: 'Crimson Text', 'Crimson Pro', 'Merriweather', Georgia, serif;
-  --font-sans: 'Inter', 'Lato', 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -52,10 +61,11 @@
   --shadow-book: 2px 4px 12px rgba(45, 52, 54, 0.15);
   
   /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 100px;
   
   /* Borders */
   --border-light: 1px solid rgba(139, 133, 120, 0.2);
@@ -72,20 +82,27 @@ body {
   font-family: var(--font-sans);
   color: var(--charcoal);
   background-color: var(--cream);
-  background-image: 
-    linear-gradient(to bottom, rgba(250, 248, 243, 0.95), rgba(250, 248, 243, 0.98)),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(139, 133, 120, 0.02) 2px,
-      rgba(139, 133, 120, 0.02) 4px
-    );
   line-height: 1.7;
   font-size: var(--text-base);
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Polished custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 133, 120, 0.35);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 107, 88, 0.5);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -145,27 +162,26 @@ a:hover {
   padding-top: 80px;
 }
 
-/* Buttons - Academic Style */
+/* Buttons */
 .btn {
-  padding: 0.75rem 1.75rem;
+  padding: 0.65rem 1.5rem;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   text-align: center;
-  box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .btn::before {
@@ -189,23 +205,23 @@ a:hover {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--deep-green) 100%);
   color: var(--warm-white);
-  border: 1px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(91, 107, 88, 0.3);
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 16px rgba(91, 107, 88, 0.35);
 }
 
 .btn-secondary {
-  background-color: var(--warm-white);
+  background-color: transparent;
   color: var(--primary);
   border: 1.5px solid var(--primary);
 }
 
 .btn-secondary:hover {
-  background-color: var(--parchment);
+  background-color: rgba(91, 107, 88, 0.06);
   border-color: var(--primary-hover);
   color: var(--primary-hover);
   transform: translateY(-1px);
@@ -258,14 +274,14 @@ a:hover {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* Cards - Book-Inspired Design */
+/* Cards */
 .card {
   background-color: var(--warm-white);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
-  box-shadow: var(--shadow-book);
-  border: var(--border-light);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(45,52,54,0.06), 0 4px 16px rgba(45,52,54,0.07);
+  border: 1px solid rgba(139, 133, 120, 0.14);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
