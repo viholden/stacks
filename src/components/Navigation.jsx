@@ -35,6 +35,9 @@ function Navigation() {
             <Link to="/events" className={`nav-link ${isActive('/events')}`}>
               Events
             </Link>
+            <Link to="/libraries" className={`nav-link ${isActive('/libraries')}`}>
+              Library of Things
+            </Link>
             
             {currentUser ? (
               <Link to="/profile" className={`nav-link ${isActive('/profile')}`}>

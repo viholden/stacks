@@ -1,41 +1,8 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import SearchBar from '../components/SearchBar'
-import LibraryCard from '../components/LibraryCard'
-import { libraries, mockItems } from '../data/mockData'
 import '../styles/Home.css'
 
 function Home() {
   const navigate = useNavigate()
-  const [categoryCounts, setCategoryCounts] = useState({})
-
-  useEffect(() => {
-    // Calculate real category counts from mockItems
-    const counts = {}
-    mockItems.forEach(item => {
-      counts[item.category] = (counts[item.category] || 0) + 1
-    })
-    setCategoryCounts(counts)
-  }, [])
-
-  const categories = [
-    { name: 'Musical Instruments', icon: '🎸' },
-    { name: 'Art Supplies', icon: '🎨' },
-    { name: 'Technology', icon: '💻' },
-    { name: 'Tools & Equipment', icon: '🔧' },
-    { name: 'Educational Kits', icon: '🧪' },
-    { name: 'Games & Puzzles', icon: '🎲' },
-    { name: 'Sports Equipment', icon: '⚽' },
-    { name: 'Crafts & Hobbies', icon: '✂️' },
-  ]
-
-  const handleSearch = (query) => {
-    navigate(`/results?q=${encodeURIComponent(query)}`)
-  }
-
-  const handleCategoryClick = (categoryName) => {
-    navigate(`/results?category=${encodeURIComponent(categoryName)}`)
-  }
 
   return (
     <div className="home">
@@ -45,8 +12,13 @@ function Home() {
           <p className="hero-subtitle">
             Organize your books, discover new reads, and find them at your local library
           </p>
-          <div className="hero-search">
-            <SearchBar onSearch={handleSearch} placeholder="Search for books, authors, or ISBNs..." />
+          <div className="hero-actions">
+            <button className="btn btn-primary btn-large" onClick={() => navigate('/discover')}>
+              Discover Books
+            </button>
+            <button className="btn btn-secondary btn-large" onClick={() => navigate('/libraries')}>
+              Library of Things
+            </button>
           </div>
         </div>
       </section>
@@ -83,6 +55,11 @@ function Home() {
             <span className="feature-icon">💰</span>
             <h3>Library Savings Tracker</h3>
             <p>See how much money you've saved by borrowing books from your library</p>
+          </div>
+          <div className="feature-card">
+            <span className="feature-icon">🎸</span>
+            <h3>Library of Things</h3>
+            <p>Browse musical instruments, tools, games, and more available to borrow from local libraries</p>
           </div>
         </div>
       </section>

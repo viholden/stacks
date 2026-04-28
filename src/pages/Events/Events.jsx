@@ -37,8 +37,6 @@ function Events() {
   const [postContent, setPostContent] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const [customTag, setCustomTag] = useState('');
-  const [postImage, setPostImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Feed state
@@ -170,44 +168,6 @@ function Events() {
     }
   }, [activeFilter, posts, userProfile, currentUser]);
 
-  // Handle post image upload
-  const handleImageSelect = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
-        alert('Image must be under 5MB');
-        return;
-      }
-      setPostImage(file);
-      setImagePreview(URL.createObjectURL(file));
-    }
-  };
-
-  // Resize & compress image to base64 (no Storage needed)
-  const uploadImage = async (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const img = new Image()
-        img.onload = () => {
-          const maxW = 800, maxH = 800
-          const scale = Math.min(maxW / img.width, maxH / img.height, 1)
-          const w = Math.round(img.width * scale)
-          const h = Math.round(img.height * scale)
-          const canvas = document.createElement('canvas')
-          canvas.width = w
-          canvas.height = h
-          canvas.getContext('2d').drawImage(img, 0, 0, w, h)
-          resolve(canvas.toDataURL('image/jpeg', 0.8))
-        }
-        img.onerror = reject
-        img.src = e.target.result
-      }
-      reader.onerror = reject
-      reader.readAsDataURL(file)
-    })
-  };
-
   // Add/remove tags
   const toggleTag = (tag) => {
     if (selectedTags.includes(tag)) {
@@ -231,16 +191,11 @@ function Events() {
 
     setIsSubmitting(true);
     try {
-      let imageUrl = null;
-      if (postImage) {
-        imageUrl = await uploadImage(postImage);
-      }
-
       await addDoc(collection(db, 'posts'), {
         userId: currentUser.uid,
         content: postContent.trim(),
         tags: selectedTags,
-        imageUrl,
+        imageUrl: null,
         likes: [],
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
@@ -249,8 +204,6 @@ function Events() {
       // Reset form and close modal
       setPostContent('');
       setSelectedTags([]);
-      setPostImage(null);
-      setImagePreview(null);
       setShowCreateModal(false);
       await loadPosts();
     } catch (error) {
@@ -425,22 +378,6 @@ function Events() {
                     required
                   />
 
-                  {imagePreview && (
-                    <div className="image-preview">
-                      <img src={imagePreview} alt="Upload preview" />
-                      <button
-                        type="button"
-                        className="remove-image-btn"
-                        onClick={() => {
-                          setPostImage(null);
-                          setImagePreview(null);
-                        }}
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  )}
-
                   <div className="post-tags-section">
                     <label>Tags:</label>
                     <div className="tag-buttons">
@@ -480,15 +417,6 @@ function Events() {
                   </div>
 
                   <div className="post-actions">
-                    <label className="image-upload-btn">
-                      📷 Add Photo
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageSelect}
-                        style={{ display: 'none' }}
-                      />
-                    </label>
                     <button
                       type="submit"
                       className="btn-primary btn-large"
@@ -532,10 +460,10 @@ function Events() {
         <div className="posts-feed">
           {loading ? (
             <p className="loading-text">Loading posts...</p>
-          ) : filteredPosts.length === 0 ? (
+          ) : filteredPosts.filter(p => p.userData).length === 0 ? (
             <p className="no-posts">No posts yet. Be the first to share!</p>
           ) : (
-            filteredPosts.map(post => (
+            filteredPosts.filter(p => p.userData).map(post => (
               <div key={post.id} className="post-card">
                 <div className="post-header">
                   <div

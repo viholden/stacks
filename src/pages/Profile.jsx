@@ -9,7 +9,7 @@ import ReadingGoal from '../components/ReadingGoal'
 import '../styles/Profile.css'
 
 function Profile() {
-  const { currentUser, userProfile, updateUserProfile, logout, uploadProfilePicture, updatePrivacySettings, followUser, unfollowUser } = useAuth()
+  const { currentUser, userProfile, updateUserProfile, logout, updatePrivacySettings, followUser, unfollowUser } = useAuth()
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [editing, setEditing] = useState(false)
   const [displayName, setDisplayName] = useState('')
@@ -20,9 +20,6 @@ function Profile() {
   const [error, setError] = useState('')
   
   // Social features
-  const [profilePicture, setProfilePicture] = useState(null)
-  const [profilePicturePreview, setProfilePicturePreview] = useState(null)
-  const [uploadingPicture, setUploadingPicture] = useState(false)
   const [searchUsername, setSearchUsername] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [searching, setSearching] = useState(false)
@@ -61,41 +58,6 @@ function Profile() {
       setInviteLink(`${baseUrl}/user/${userProfile.username}`)
     }
   }, [userProfile])
-
-  // Handle profile picture selection
-  const handleProfilePictureSelect = (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
-        setError('Profile picture must be under 5MB')
-        return
-      }
-      setProfilePicture(file)
-      setProfilePicturePreview(URL.createObjectURL(file))
-    }
-  }
-
-  // Upload profile picture
-  const handleUploadProfilePicture = async () => {
-    if (!profilePicture) return
-
-    try {
-      setUploadingPicture(true)
-      setError('')
-      await uploadProfilePicture(profilePicture)
-      
-      // Clear file state (AuthContext already updated userProfile)
-      setProfilePicture(null)
-      setProfilePicturePreview(null)
-      
-      alert('Profile picture updated successfully!')
-    } catch (error) {
-      console.error('Failed to upload profile picture:', error)
-      setError('Failed to upload profile picture. Please try again.')
-    } finally {
-      setUploadingPicture(false)
-    }
-  }
 
   // Search for users
   const handleSearchUsers = async () => {
@@ -348,44 +310,6 @@ function Profile() {
               <img src={userProfile.photoURL} alt={userProfile.displayName} />
             ) : (
               <span>{userProfile.displayName?.charAt(0).toUpperCase() || 'U'}</span>
-            )}
-          </div>
-          
-          {/* Profile Picture Upload */}
-          <div className="profile-picture-upload">
-            <input
-              type="file"
-              id="profilePicture"
-              accept="image/*"
-              onChange={handleProfilePictureSelect}
-              style={{ display: 'none' }}
-            />
-            {profilePicturePreview ? (
-              <div className="picture-preview">
-                <img src={profilePicturePreview} alt="Preview" />
-                <div className="picture-actions">
-                  <button
-                    className="btn btn-primary btn-small"
-                    onClick={handleUploadProfilePicture}
-                    disabled={uploadingPicture}
-                  >
-                    {uploadingPicture ? 'Uploading...' : 'Upload'}
-                  </button>
-                  <button
-                    className="btn btn-secondary btn-small"
-                    onClick={() => {
-                      setProfilePicture(null)
-                      setProfilePicturePreview(null)
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <label htmlFor="profilePicture" className="upload-label">
-                Change Profile Picture
-              </label>
             )}
           </div>
           
